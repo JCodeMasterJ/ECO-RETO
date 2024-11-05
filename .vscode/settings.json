@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Prueba_2.sln"
+    "dotnet.defaultSolution": "ECO-RETO.sln"
 }
