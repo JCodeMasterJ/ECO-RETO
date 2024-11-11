@@ -8,6 +8,8 @@ public class AgitarCaja : MonoBehaviour
     public float intensidadShake = 0.05f; // Intensidad del efecto de agitar
     public float esperaAntesShake = 0.5f; // Espera antes de empezar el shake
     public Sprite cajaAbierta; // Sprite de la caja abierta
+    public ControladorResiduo controladorResiduo; // Referencia al controlador de residuos
+
 
     private SpriteRenderer spriteRenderer;
     private Vector3 posicionOriginal;
@@ -74,6 +76,8 @@ public class AgitarCaja : MonoBehaviour
             transform.localPosition = posicionOriginal;
 
             Debug.Log("Caja Abierta");
+            
+            controladorResiduo.MostrarResiduoAleatorio();
         }
     }
 }
