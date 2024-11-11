@@ -7,6 +7,7 @@ public class ControladorCinta : MonoBehaviour
     public MovimientoCinta movimientoCinta; // Referencia al script de la cinta transportadora
     private MovimientoCaja[] cajas; // Referencia a todas las cajas
     public AgitarCaja cajaDerecha; // Referencia a la caja que debe abrirse
+    public AnimarResiduo animarResiduo; // Referencia al script que anima el residuo
 
     private void Start()
     {
@@ -37,6 +38,9 @@ public class ControladorCinta : MonoBehaviour
             {
                 caja.enabled = false;
             }
+
+            // Asigna la posición de la caja para iniciar el movimiento del residuo
+            animarResiduo.posicionInicial = cajaDerecha.transform.position; // Asignamos la posición de la caja
 
             // Inicia el shake de la caja de la derecha
             cajaDerecha.IniciarShake();

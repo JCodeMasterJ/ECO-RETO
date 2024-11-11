@@ -171,6 +171,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: flor marchita
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &16839761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -510,6 +511,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "botella de pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &36973929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -715,6 +717,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "pa\xF1al"
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &97003673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1050,6 +1053,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: pila de libros
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &387181354
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1151,6 +1155,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "bolsa de \xB4pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &409864661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1249,6 +1254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movimientoCinta: {fileID: 1399417281}
   cajaDerecha: {fileID: 1276415708}
+  animarResiduo: {fileID: 0}
 --- !u!1 &461866905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,6 +1304,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "papel higi\xE9nico"
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &461866908
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1670,6 +1677,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "caja de cart\xF3n"
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &571342374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2032,6 +2040,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: cd roto
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &814122724
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2470,6 +2479,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: camiseta vieja
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &961568668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2571,6 +2581,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "porci\xF3n de pizza"
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &973222667
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2858,6 +2869,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: cascara de banano
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1020132720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2959,6 +2971,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: jarra de vidrio
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1048903702
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3060,6 +3073,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: cigarrillo
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1054802724
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3295,6 +3309,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: tapabocas
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1084347761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3878,6 +3893,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: pedazo de manzana
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1308759613
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4010,6 +4026,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: cascara de huevo
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1390704365
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4111,6 +4128,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: revista
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1396495090
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4382,6 +4400,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: lata de cocacola
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1447931531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4994,6 +5013,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: servilleta sucia
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1740451154
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5139,6 +5159,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: caja de pizza
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1780867368
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5390,6 +5411,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: caja de pastillas
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1891667599
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5571,6 +5593,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: pan con moho
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &1999847056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5897,6 +5920,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: espinas de pescado
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &2044039342
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6152,6 +6176,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: monton de hojas
   textoNombreResiduo: {fileID: 1291072536}
+  posicionInicial: {x: 0, y: 0, z: 0}
 --- !u!212 &2146544034
 SpriteRenderer:
   m_ObjectHideFlags: 0

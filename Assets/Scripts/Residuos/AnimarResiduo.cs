@@ -12,7 +12,7 @@ public class AnimarResiduo : MonoBehaviour
 
     private Vector3 escalaInicial;
     private Vector3 escalaFinal = new Vector3(0.1f, 0.1f, 0.1f); // Escala deseada en el centro
-    private Vector3 posicionInicial;
+    public Vector3 posicionInicial;
 
     private void Start()
     {
