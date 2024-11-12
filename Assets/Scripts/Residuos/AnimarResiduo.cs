@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI; // Si usarás un texto para el nombre del residuo
 using TMPro;
 public class AnimarResiduo : MonoBehaviour
 {

@@ -171,7 +171,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: flor marchita
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &16839761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "botella de pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &36973929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -717,7 +717,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "pa\xF1al"
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &97003673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -971,6 +971,37 @@ Transform:
   - {fileID: 123781164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &294053821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294053822}
+  m_Layer: 0
+  m_Name: Posicion Destino
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &294053822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294053821}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.68, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 815075453}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &386721870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1084,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: pila de libros
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &387181354
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1155,7 +1186,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "bolsa de \xB4pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &409864661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1253,8 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movimientoCinta: {fileID: 1399417281}
-  cajaDerecha: {fileID: 1276415708}
-  animarResiduo: {fileID: 0}
+  cajaDerecha: {fileID: 1276415707}
 --- !u!1 &461866905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1334,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "papel higi\xE9nico"
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &461866908
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1677,7 +1707,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "caja de cart\xF3n"
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &571342374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1740,8 +1770,8 @@ GameObject:
   m_Component:
   - component: {fileID: 637015500}
   - component: {fileID: 637015499}
-  - component: {fileID: 637015501}
   - component: {fileID: 637015502}
+  - component: {fileID: 637015501}
   m_Layer: 0
   m_Name: Caja 3
   m_TagString: Untagged
@@ -1825,12 +1855,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 637015498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a621d9fce0a73f040929eb8ad8574b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b90c8bb52717de43856738d31d79aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posicionObjetivo: {fileID: 916022923}
-  velocidad: 1
-  enPosicion: 0
+  duracionShake: 1
+  intensidadShake: 0.03
+  esperaAntesShake: 0.5
+  cajaAbierta: {fileID: 21300000, guid: 24d6d9ca7a5837243b03fdaa19e82e50, type: 3}
+  controladorResiduo: {fileID: 2017445491}
 --- !u!114 &637015502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,14 +1872,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 637015498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90c8bb52717de43856738d31d79aac, type: 3}
+  m_Script: {fileID: 11500000, guid: a621d9fce0a73f040929eb8ad8574b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duracionShake: 0.5
-  intensidadShake: 0.1
-  esperaAntesShake: 0.5
-  cajaAbierta: {fileID: 21300000, guid: 24d6d9ca7a5837243b03fdaa19e82e50, type: 3}
-  controladorResiduo: {fileID: 2017445491}
+  posicionObjetivo: {fileID: 916022923}
+  velocidad: 1
+  enPosicion: 0
 --- !u!1 &650859792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,7 +2070,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: cd roto
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &814122724
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2122,6 +2152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 294053822}
   - {fileID: 1337449973}
   - {fileID: 1783537563}
   - {fileID: 916022923}
@@ -2479,7 +2510,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: camiseta vieja
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &961568668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2581,7 +2612,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: "porci\xF3n de pizza"
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &973222667
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2869,7 +2900,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: cascara de banano
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1020132720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2971,7 +3002,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: jarra de vidrio
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1048903702
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3073,7 +3104,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: cigarrillo
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1054802724
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3309,7 +3340,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: tapabocas
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1084347761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3447,8 +3478,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1276415705}
   - component: {fileID: 1276415706}
-  - component: {fileID: 1276415707}
   - component: {fileID: 1276415708}
+  - component: {fileID: 1276415707}
   m_Layer: 0
   m_Name: Caja 1
   m_TagString: Untagged
@@ -3532,12 +3563,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276415704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a621d9fce0a73f040929eb8ad8574b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b90c8bb52717de43856738d31d79aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posicionObjetivo: {fileID: 1337449973}
-  velocidad: 1
-  enPosicion: 0
+  duracionShake: 1
+  intensidadShake: 0.03
+  esperaAntesShake: 0.5
+  cajaAbierta: {fileID: 21300000, guid: 24d6d9ca7a5837243b03fdaa19e82e50, type: 3}
+  controladorResiduo: {fileID: 2017445491}
 --- !u!114 &1276415708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3547,14 +3580,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276415704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90c8bb52717de43856738d31d79aac, type: 3}
+  m_Script: {fileID: 11500000, guid: a621d9fce0a73f040929eb8ad8574b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duracionShake: 1
-  intensidadShake: 0.03
-  esperaAntesShake: 0.5
-  cajaAbierta: {fileID: 21300000, guid: 24d6d9ca7a5837243b03fdaa19e82e50, type: 3}
-  controladorResiduo: {fileID: 2017445491}
+  posicionObjetivo: {fileID: 1337449973}
+  velocidad: 1
+  enPosicion: 0
 --- !u!1 &1291072535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,7 +3730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1304796627}
   m_Layer: 0
-  m_Name: Cajas
+  m_Name: Contenedor Cajas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3893,7 +3924,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: pedazo de manzana
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1308759613
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4026,7 +4057,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: cascara de huevo
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1390704365
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4128,7 +4159,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: revista
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1396495090
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4400,7 +4431,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: lata de cocacola
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1447931531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4714,8 +4745,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1652255005}
   - component: {fileID: 1652255004}
-  - component: {fileID: 1652255006}
   - component: {fileID: 1652255007}
+  - component: {fileID: 1652255006}
   m_Layer: 0
   m_Name: Caja 2
   m_TagString: Untagged
@@ -4799,12 +4830,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1652255003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a621d9fce0a73f040929eb8ad8574b4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b90c8bb52717de43856738d31d79aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posicionObjetivo: {fileID: 1783537563}
-  velocidad: 1
-  enPosicion: 0
+  duracionShake: 1
+  intensidadShake: 0.03
+  esperaAntesShake: 0.5
+  cajaAbierta: {fileID: 21300000, guid: 24d6d9ca7a5837243b03fdaa19e82e50, type: 3}
+  controladorResiduo: {fileID: 2017445491}
 --- !u!114 &1652255007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4814,14 +4847,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1652255003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90c8bb52717de43856738d31d79aac, type: 3}
+  m_Script: {fileID: 11500000, guid: a621d9fce0a73f040929eb8ad8574b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duracionShake: 0.5
-  intensidadShake: 0.1
-  esperaAntesShake: 0.5
-  cajaAbierta: {fileID: 21300000, guid: 24d6d9ca7a5837243b03fdaa19e82e50, type: 3}
-  controladorResiduo: {fileID: 2017445491}
+  posicionObjetivo: {fileID: 1783537563}
+  velocidad: 1
+  enPosicion: 0
 --- !u!1 &1690173789
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,7 +5044,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: servilleta sucia
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1740451154
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5159,7 +5190,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: caja de pizza
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1780867368
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5411,7 +5442,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: caja de pastillas
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1891667599
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5593,7 +5624,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: pan con moho
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1999847056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5920,7 +5951,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: espinas de pescado
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &2044039342
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6066,7 +6097,7 @@ Transform:
   m_GameObject: {fileID: 2081095318}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9105058, y: 0.15659158, z: -0.071153514}
+  m_LocalPosition: {x: 5.08, y: 0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6176,7 +6207,7 @@ MonoBehaviour:
   duracionMovimiento: 1.5
   nombreResiduo: monton de hojas
   textoNombreResiduo: {fileID: 1291072536}
-  posicionInicial: {x: 0, y: 0, z: 0}
+  posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &2146544034
 SpriteRenderer:
   m_ObjectHideFlags: 0
