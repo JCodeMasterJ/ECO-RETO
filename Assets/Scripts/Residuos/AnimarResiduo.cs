@@ -5,25 +5,30 @@ using TMPro;
 public class AnimarResiduo : MonoBehaviour
 {
     public Transform posicionCentro; // Referencia a la posición final en el centro de la pantalla
-    public float duracionMovimiento = 1.5f; // Duración del movimiento y escalado
+    public float duracionMovimiento = 2f; // Duración del movimiento y escalado
     public string nombreResiduo; // Nombre del residuo para mostrar
-    public TextMeshProUGUI textoNombreResiduo; // Referencia al objeto Text para mostrar el nombre del residuo
+    //public TextMeshProUGUI textoNombreResiduo; // Referencia al objeto Text para mostrar el nombre del residuo
+    public TextMeshProUGUI  textoNombreResiduo; // Referencia al objeto Text para mostrar el nombre del residuo
 
     private Vector3 escalaInicial;
-    private Vector3 escalaFinal = new Vector3(0.1f, 0.1f, 0.1f); // Escala deseada en el centro
+    private Vector3 escalaFinal = new Vector3(0.11f, 0.11f, 0.11f); // Escala deseada en el centro
     public Vector3 posicionInicial;
 
     private void Start()
     {
         escalaInicial = transform.localScale;
         posicionInicial = transform.localPosition;
-        textoNombreResiduo.text = ""; // Inicia el texto vacío
+        //textoNombreResiduo.text = ""; // Inicia el texto vacío
+        textoNombreResiduo = GameObject.Find("Text_Residuos").GetComponent<TextMeshProUGUI>();
     }
 
     public void IniciarMovimiento()
     {
         // Empieza el movimiento del residuo hacia el centro con un escalado
         StartCoroutine(MoverYEscalarResiduo());
+        //textoNombreResiduo.text = nombreResiduo;
+        //textoNombreResiduo.color = new Color(textoNombreResiduo.color.r, textoNombreResiduo.color.g, textoNombreResiduo.color.b, 0); // Hacerlo transparente al inicio
+
     }
 
     private IEnumerator MoverYEscalarResiduo()
@@ -31,10 +36,7 @@ public class AnimarResiduo : MonoBehaviour
         float tiempoTranscurrido = 0f;
         Vector3 posicionFinal = posicionCentro.localPosition;
 
-        // Configura el nombre del residuo antes de iniciar el movimiento
-        textoNombreResiduo.text = nombreResiduo;
-        textoNombreResiduo.color = new Color(textoNombreResiduo.color.r, textoNombreResiduo.color.g, textoNombreResiduo.color.b, 0); // Hacerlo transparente al inicio
-
+        
         while (tiempoTranscurrido < duracionMovimiento)
         {
             tiempoTranscurrido += Time.deltaTime;
@@ -44,7 +46,7 @@ public class AnimarResiduo : MonoBehaviour
             transform.localScale = Vector3.Lerp(escalaInicial, escalaFinal, tiempoTranscurrido / duracionMovimiento);
 
             // Interpola la opacidad del texto para que aparezca suavemente
-            textoNombreResiduo.color = new Color(textoNombreResiduo.color.r, textoNombreResiduo.color.g, textoNombreResiduo.color.b, tiempoTranscurrido / duracionMovimiento);
+            //textoNombreResiduo.color = new Color(textoNombreResiduo.color.r, textoNombreResiduo.color.g, textoNombreResiduo.color.b, tiempoTranscurrido / duracionMovimiento);
 
             yield return null;
         }
@@ -52,6 +54,8 @@ public class AnimarResiduo : MonoBehaviour
         // Asegura que la posición y escala sean las finales
         transform.localPosition = posicionFinal;
         transform.localScale = escalaFinal;
-        textoNombreResiduo.color = new Color(textoNombreResiduo.color.r, textoNombreResiduo.color.g, textoNombreResiduo.color.b, 1); // Totalmente visible al final
+        textoNombreResiduo.text = nombreResiduo;
+        //textoNombreResiduo.color = new Color(textoNombreResiduo.color.r, textoNombreResiduo.color.g, textoNombreResiduo.color.b, 1); // Totalmente visible al final
     }
+    
 }
