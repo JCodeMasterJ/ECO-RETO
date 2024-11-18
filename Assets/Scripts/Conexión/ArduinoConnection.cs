@@ -5,7 +5,8 @@ using System.Threading;
 
 public class ArduinoConnection : MonoBehaviour
 {
-    public string ipAddress = "10.11.221.31"; // Ctrl C + Ctrl V Si no te acuerdas que es pruebalo
+    //public string ipAddress = "10.11.221.31"; // IP de la Uni
+    public string ipAddress = "192.168.1.18"; // IP de la casa. Ctrl C + Ctrl V Si no te acuerdas que es pruebalo
     public int port = 80;
 
     private TcpClient socketConnection;

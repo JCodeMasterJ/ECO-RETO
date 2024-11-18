@@ -48,7 +48,7 @@ public class AgitarCaja : MonoBehaviour
             tiempoTranscurrido += Time.deltaTime;
 
             // Depuración: Imprime el valor de tiempoTranscurrido
-            Debug.Log($"Shake: Tiempo transcurrido = {tiempoTranscurrido}");
+            //Debug.Log($"Shake: Tiempo transcurrido = {tiempoTranscurrido}");
 
             // Crea un desplazamiento aleatorio pero anclado a la posición original
             float desplazamientoX = Random.Range(-intensidadShake, intensidadShake);
@@ -75,7 +75,7 @@ public class AgitarCaja : MonoBehaviour
             // Asegura que la caja esté en su posición correcta
             transform.localPosition = posicionOriginal;
 
-            Debug.Log("Caja Abierta");
+            //Debug.Log("Caja Abierta");
             
             controladorResiduo.MostrarResiduoAleatorio();
         }
