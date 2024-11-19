@@ -72,11 +72,12 @@ public class TrashController : MonoBehaviour
 
     public void ProcesarSenal(string senal)
     {
+        
         tiempoInactivo = 0f; // Reinicia el temporizador al recibir señal
 
         if (residuoActual == null)
         {
-            Debug.LogWarning("No hay residuo actual para evaluar.");
+            // Debug.LogWarning("No hay residuo actual para evaluar.");
             return;
         }
 

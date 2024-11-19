@@ -34,6 +34,11 @@ public class AnimarResiduo : MonoBehaviour
     {
         // Empieza el movimiento del residuo hacia el centro con un escalado
         StartCoroutine(MoverYEscalarResiduo());
+        // Notificar al TrashController que debe iniciar el temporizador
+        if (trashController != null)
+        {   
+            trashController.IniciarTemporizador();
+        }
         //textoNombreResiduo.text = nombreResiduo;
         //textoNombreResiduo.color = new Color(textoNombreResiduo.color.r, textoNombreResiduo.color.g, textoNombreResiduo.color.b, 0); // Hacerlo transparente al inicio
 
@@ -65,12 +70,8 @@ public class AnimarResiduo : MonoBehaviour
 
         // Mostrar el texto del residuo
         textoNombreResiduo.text = nombreResiduo;
+
         
-        // Notificar al TrashController que debe iniciar el temporizador
-        if (trashController != null)
-        {   
-            trashController.IniciarTemporizador();
-        }
     }
     
 }

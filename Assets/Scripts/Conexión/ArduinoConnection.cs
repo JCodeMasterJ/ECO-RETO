@@ -15,7 +15,7 @@ public class ArduinoConnection : MonoBehaviour
     private volatile bool keepReading = true;
 
     // Referencia al controlador de juego
-    public TrashController gameController;
+    public TrashController trashController;
 
     void Start()
     {
@@ -55,6 +55,11 @@ public class ArduinoConnection : MonoBehaviour
                     if (serverMessage != null)
                     {
                         Debug.Log("Mensaje recibido: " + serverMessage);
+                        // Llamar a ProcesarSenal en TrashController
+                        if (trashController != null)
+                        {
+                            trashController.ProcesarSenal(serverMessage);
+                        }
 
                         // // Delegar acciones al controlador del juego
                         // if (serverMessage == "verde")
