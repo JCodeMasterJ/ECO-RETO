@@ -9,10 +9,12 @@ public class AnimarResiduo : MonoBehaviour
     public string nombreResiduo; // Nombre del residuo para mostrar
     //public TextMeshProUGUI textoNombreResiduo; // Referencia al objeto Text para mostrar el nombre del residuo
     public TextMeshProUGUI  textoNombreResiduo; // Referencia al objeto Text para mostrar el nombre del residuo
+    public string basuraCorrecta;
 
     private Vector3 escalaInicial;
     private Vector3 escalaFinal = new Vector3(0.11f, 0.11f, 0.11f); // Escala deseada en el centro
     public Vector3 posicionInicial;
+    private TrashController trashController; // TrashController Conection
 
     private void Start()
     {
@@ -20,6 +22,12 @@ public class AnimarResiduo : MonoBehaviour
         posicionInicial = transform.localPosition;
         //textoNombreResiduo.text = ""; // Inicia el texto vacío
         textoNombreResiduo = GameObject.Find("Text_Residuos").GetComponent<TextMeshProUGUI>();
+        //Conexión con el trashController
+        trashController = FindObjectOfType<TrashController>();
+        if (trashController != null)
+        {
+            trashController.SetResiduoActual(this);
+        }
     }
 
     public void IniciarMovimiento()
@@ -54,8 +62,15 @@ public class AnimarResiduo : MonoBehaviour
         // Asegura que la posición y escala sean las finales
         transform.localPosition = posicionFinal;
         transform.localScale = escalaFinal;
+
+        // Mostrar el texto del residuo
         textoNombreResiduo.text = nombreResiduo;
-        //textoNombreResiduo.color = new Color(textoNombreResiduo.color.r, textoNombreResiduo.color.g, textoNombreResiduo.color.b, 1); // Totalmente visible al final
+        
+        // Notificar al TrashController que debe iniciar el temporizador
+        if (trashController != null)
+        {   
+            trashController.IniciarTemporizador();
+        }
     }
     
 }

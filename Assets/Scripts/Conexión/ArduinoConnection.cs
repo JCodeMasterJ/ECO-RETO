@@ -56,16 +56,16 @@ public class ArduinoConnection : MonoBehaviour
                     {
                         Debug.Log("Mensaje recibido: " + serverMessage);
 
-                        // Delegar acciones al controlador del juego
-                        if (serverMessage == "verde")
-                        {
-                            gameController.ActivateGreenTrash();
-                        }
-                        else if (serverMessage == "fuera" && gameController.GreenTrashActivated)
-                        {
-                            gameController.DeactivateGreenTrash();
-                        }
-                        // Añadir más condicionales para otros tipos de basura
+                        // // Delegar acciones al controlador del juego
+                        // if (serverMessage == "verde")
+                        // {
+                        //     gameController.ActivateGreenTrash();
+                        // }
+                        // else if (serverMessage == "fuera" && gameController.GreenTrashActivated)
+                        // {
+                        //     gameController.DeactivateGreenTrash();
+                        // }
+                        // // Añadir más condicionales para otros tipos de basura
                     }
                 }
                 else

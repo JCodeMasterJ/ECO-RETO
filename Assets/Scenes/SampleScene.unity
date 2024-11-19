@@ -171,6 +171,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: flor marchita
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: verde
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &16839761
 SpriteRenderer:
@@ -511,6 +512,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "botella de pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &36973929
 SpriteRenderer:
@@ -717,6 +719,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "pa\xF1al usado"
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &97003673
 SpriteRenderer:
@@ -801,7 +804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ipAddress: 192.168.1.18
   port: 80
-  gameController: {fileID: 1755853552}
+  gameController: {fileID: 0}
 --- !u!4 &123781164
 Transform:
   m_ObjectHideFlags: 0
@@ -1084,6 +1087,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: pila de libros
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &387181354
 SpriteRenderer:
@@ -1186,6 +1190,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "bolsa de pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &409864661
 SpriteRenderer:
@@ -1334,6 +1339,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "papel higi\xE9nico"
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &461866908
 SpriteRenderer:
@@ -1707,6 +1713,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "caja de cart\xF3n"
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &571342374
 SpriteRenderer:
@@ -2205,6 +2212,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: cd roto
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &814122724
 SpriteRenderer:
@@ -2645,6 +2653,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: camiseta vieja
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &961568668
 SpriteRenderer:
@@ -2747,6 +2756,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "porci\xF3n de pizza"
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: verde
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &973222667
 SpriteRenderer:
@@ -3035,6 +3045,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: cascara de banano
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: verde
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1020132720
 SpriteRenderer:
@@ -3271,6 +3282,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: jarra de vidrio
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1048903702
 SpriteRenderer:
@@ -3373,6 +3385,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: restos de cigarro
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1054802724
 SpriteRenderer:
@@ -3766,6 +3779,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: tapabocas usado
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1084347761
 SpriteRenderer:
@@ -4374,6 +4388,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: pedazo de manzana
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: verde
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1308759613
 SpriteRenderer:
@@ -4507,6 +4522,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: cascara de huevo
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: verde
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1390704365
 SpriteRenderer:
@@ -4609,6 +4625,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: revista de papel
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1396495090
 SpriteRenderer:
@@ -4917,6 +4934,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: lata de cocacola
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1447931531
 SpriteRenderer:
@@ -5605,6 +5623,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: servilleta sucia
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1740451154
 SpriteRenderer:
@@ -5667,26 +5686,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1755853553}
-  - component: {fileID: 1755853552}
+  - component: {fileID: 1755853555}
+  - component: {fileID: 1755853554}
   m_Layer: 0
-  m_Name: TrashController
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1755853552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755853551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945bb4f3951183b4881438adc7b81a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1755853553
 Transform:
   m_ObjectHideFlags: 0
@@ -5702,6 +5710,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 285883301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1755853554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755853551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945bb4f3951183b4881438adc7b81a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartsGameObject: {fileID: 1145037497}
+  maxLives: 3
+  heartWidth: 16
+  scoreManager: {fileID: 1755853555}
+--- !u!114 &1755853555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755853551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa818983a6f116949a5ae3470b3de20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTextMesh: {fileID: 0}
 --- !u!1 &1780867365
 GameObject:
   m_ObjectHideFlags: 0
@@ -5751,6 +5788,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: caja de pizza
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1780867368
 SpriteRenderer:
@@ -6003,6 +6041,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: caja de pastillas
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: Blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1891667599
 SpriteRenderer:
@@ -6185,6 +6224,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: pan con moho
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: verde
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1999847056
 SpriteRenderer:
@@ -6512,6 +6552,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: espinas de pescado
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: verde
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &2044039342
 SpriteRenderer:
@@ -6768,6 +6809,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: monton de hojas
   textoNombreResiduo: {fileID: 1291072536}
+  basuraCorrecta: verde
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &2146544034
 SpriteRenderer:
