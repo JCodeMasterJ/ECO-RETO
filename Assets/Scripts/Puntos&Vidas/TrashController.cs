@@ -72,7 +72,12 @@ public class TrashController : MonoBehaviour
 
     public void ProcesarSenal(string senal)
     {
-        Debug.Log($"Procesando señal: {senal}");
+        //Debug.Log($"Procesando señal: {senal}");
+        if (residuoActual == null)
+        {   
+            //Debug.LogWarning("No hay residuo actual configurado.");
+            return;
+        }
 
         // Ignorar señales no válidas
         if (string.IsNullOrEmpty(senal) || senal == "Esperando...")
@@ -83,11 +88,7 @@ public class TrashController : MonoBehaviour
 
         tiempoInactivo = 0f; // Reinicia el temporizador al recibir señal
 
-        if (residuoActual == null)
-        {   
-            Debug.LogWarning("No hay residuo actual configurado.");
-            return;
-        }
+        
 
         if (string.IsNullOrEmpty(residuoActual.basuraCorrecta))
         {   

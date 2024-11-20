@@ -54,7 +54,7 @@ public class ArduinoConnection : MonoBehaviour
                 if (networkStream.DataAvailable)
                 {
                     string serverMessage = reader.ReadLine();
-                    Debug.Log($"Mensaje recibido del servidor: {serverMessage}");
+                    //Debug.Log($"Mensaje recibido del servidor: {serverMessage}");
 
                     if (!string.IsNullOrEmpty(serverMessage))
                     {
