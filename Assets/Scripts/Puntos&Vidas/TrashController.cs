@@ -72,30 +72,43 @@ public class TrashController : MonoBehaviour
 
     public void ProcesarSenal(string senal)
     {
-        
+        Debug.Log($"Procesando señal: {senal}");
+
+        // Ignorar señales no válidas
+        if (string.IsNullOrEmpty(senal) || senal == "Esperando...")
+        {
+            Debug.LogWarning("Señal ignorada: " + senal);
+            return;
+        }
+
         tiempoInactivo = 0f; // Reinicia el temporizador al recibir señal
 
         if (residuoActual == null)
-        {
-            // Debug.LogWarning("No hay residuo actual para evaluar.");
+        {   
+            Debug.LogWarning("No hay residuo actual configurado.");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(residuoActual.basuraCorrecta))
+        {   
+            Debug.LogWarning("La propiedad 'basuraCorrecta' del residuo actual está vacía o no está configurada.");
             return;
         }
 
         if (senal.Trim().ToLower() == residuoActual.basuraCorrecta.Trim().ToLower())
         {
-            // Señal correcta
-            Debug.Log("¡Correcto! Basura: " + senal);
+            Debug.Log($"¡Correcto! Basura: {senal}");
             scoreManager.AddPoint();
         }
         else
         {
-            // Señal incorrecta
-            Debug.Log("¡Incorrecto! Basura: " + senal);
+            Debug.Log($"¡Incorrecto! Basura: {senal}");
             scoreManager.RemovePoint();
         }
 
         UpdateHUD();
     }
+
 
     public void PerderVidaPorInactividad()
     {

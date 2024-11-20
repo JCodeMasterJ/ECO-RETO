@@ -1,3 +1,4 @@
+using System.Collections.Concurrent; // Necesario para ConcurrentQueue
 using UnityEngine;
 using System.Net.Sockets;
 using System.IO;
@@ -5,8 +6,7 @@ using System.Threading;
 
 public class ArduinoConnection : MonoBehaviour
 {
-    //public string ipAddress = "10.11.221.31"; // IP de la Uni
-    public string ipAddress = "192.168.1.18"; // IP de la casa. Ctrl C + Ctrl V Si no te acuerdas que es pruebalo
+    public string ipAddress = "192.168.1.18"; // IP del servidor
     public int port = 80;
 
     private TcpClient socketConnection;
@@ -16,6 +16,9 @@ public class ArduinoConnection : MonoBehaviour
 
     // Referencia al controlador de juego
     public TrashController trashController;
+
+    // Cola para pasar señales al hilo principal
+    private ConcurrentQueue<string> signalQueue = new ConcurrentQueue<string>();
 
     void Start()
     {
@@ -27,7 +30,7 @@ public class ArduinoConnection : MonoBehaviour
         try
         {
             socketConnection = new TcpClient(ipAddress, port);
-            clientReceiveThread = new Thread(new ThreadStart(ListenForData));
+            clientReceiveThread = new Thread(ListenForData);
             clientReceiveThread.IsBackground = true;
             clientReceiveThread.Start();
             Debug.Log("Conectado al servidor.");
@@ -51,26 +54,12 @@ public class ArduinoConnection : MonoBehaviour
                 if (networkStream.DataAvailable)
                 {
                     string serverMessage = reader.ReadLine();
+                    Debug.Log($"Mensaje recibido del servidor: {serverMessage}");
 
-                    if (serverMessage != null)
+                    if (!string.IsNullOrEmpty(serverMessage))
                     {
-                        Debug.Log("Mensaje recibido: " + serverMessage);
-                        // Llamar a ProcesarSenal en TrashController
-                        if (trashController != null)
-                        {
-                            trashController.ProcesarSenal(serverMessage);
-                        }
-
-                        // // Delegar acciones al controlador del juego
-                        // if (serverMessage == "verde")
-                        // {
-                        //     gameController.ActivateGreenTrash();
-                        // }
-                        // else if (serverMessage == "fuera" && gameController.GreenTrashActivated)
-                        // {
-                        //     gameController.DeactivateGreenTrash();
-                        // }
-                        // // Añadir más condicionales para otros tipos de basura
+                        // Encola la señal para procesarla en el hilo principal
+                        signalQueue.Enqueue(serverMessage);
                     }
                 }
                 else
@@ -82,6 +71,18 @@ public class ArduinoConnection : MonoBehaviour
         catch (System.Exception ex)
         {
             Debug.Log("Error: " + ex);
+        }
+    }
+
+    private void Update()
+    {
+        // Procesar señales en el hilo principal
+        while (signalQueue.TryDequeue(out string signal))
+        {
+            if (trashController != null)
+            {
+                trashController.ProcesarSenal(signal);
+            }
         }
     }
 
