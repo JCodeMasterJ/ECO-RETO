@@ -24,4 +24,9 @@ public class ControladorResiduo : MonoBehaviour
         // Inicia la animación del residuo
         residuoActual.GetComponent<AnimarResiduo>().IniciarMovimiento();
     }
+    public GameObject ObtenerResiduoActual()
+    {
+        return residuoActual;
+    }
+
 }
