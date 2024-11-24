@@ -557,7 +557,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "botella de pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Blanca
+  basuraCorrecta: blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &36973929
 SpriteRenderer:
@@ -764,7 +764,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "pa\xF1al usado"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Negra
+  basuraCorrecta: negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &97003673
 SpriteRenderer:
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: pila de libros
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Blanca
+  basuraCorrecta: blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &387181354
 SpriteRenderer:
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "bolsa de pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Blanca
+  basuraCorrecta: blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &409864661
 SpriteRenderer:
@@ -1384,7 +1384,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "papel higi\xE9nico"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Negra
+  basuraCorrecta: negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &461866908
 SpriteRenderer:
@@ -1758,7 +1758,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "caja de cart\xF3n"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Blanca
+  basuraCorrecta: blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &571342374
 SpriteRenderer:
@@ -2019,7 +2019,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCORE: 0'
+  m_text: 'SCORE: 0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -2257,7 +2259,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: cd roto
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Negra
+  basuraCorrecta: negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &814122724
 SpriteRenderer:
@@ -2746,7 +2748,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: camiseta vieja
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Negra
+  basuraCorrecta: negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &961568668
 SpriteRenderer:
@@ -3375,7 +3377,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: jarra de vidrio
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Blanca
+  basuraCorrecta: blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1048903702
 SpriteRenderer:
@@ -3478,7 +3480,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: restos de cigarro
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Negra
+  basuraCorrecta: negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1054802724
 SpriteRenderer:
@@ -3872,7 +3874,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: tapabocas usado
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Negra
+  basuraCorrecta: negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1084347761
 SpriteRenderer:
@@ -4718,7 +4720,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: revista de papel
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Blanca
+  basuraCorrecta: blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1396495090
 SpriteRenderer:
@@ -5027,7 +5029,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: lata de cocacola
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Blanca
+  basuraCorrecta: blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1447931531
 SpriteRenderer:
@@ -5716,7 +5718,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: servilleta sucia
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Negra
+  basuraCorrecta: negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1740451154
 SpriteRenderer:
@@ -5852,7 +5854,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: caja de pizza
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Negra
+  basuraCorrecta: negra
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1780867368
 SpriteRenderer:
@@ -6105,7 +6107,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: caja de pastillas
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: Blanca
+  basuraCorrecta: blanca
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1891667599
 SpriteRenderer:

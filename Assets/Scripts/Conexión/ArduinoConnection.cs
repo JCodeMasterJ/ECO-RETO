@@ -19,6 +19,8 @@ public class ArduinoConnection : MonoBehaviour
 
     // Cola para pasar señales al hilo principal
     private ConcurrentQueue<string> signalQueue = new ConcurrentQueue<string>();
+    private string lastSignalProcessed = ""; // Guarda la última señal procesada
+
 
     void Start()
     {
@@ -74,17 +76,35 @@ public class ArduinoConnection : MonoBehaviour
         }
     }
 
-    private void Update()
+    // private void Update()
+    // {
+    //     // Procesar señales en el hilo principal
+    //     while (signalQueue.TryDequeue(out string signal))
+    //     {
+    //         Debug.Log($"Procesando señal: {signal}"); // Verifica la señal procesada
+
+    //         if (trashController != null)
+    //         {
+    //             trashController.ProcesarSenal(signal);
+    //         }
+    //     }
+    // }
+    
+private void Update()
+{
+    while (signalQueue.TryDequeue(out string signal))
     {
-        // Procesar señales en el hilo principal
-        while (signalQueue.TryDequeue(out string signal))
+        if (signal == lastSignalProcessed) continue; // Ignorar señales ya procesadas
+
+        Debug.Log($"Procesando señal: {signal}");
+        if (trashController != null)
         {
-            if (trashController != null)
-            {
-                trashController.ProcesarSenal(signal);
-            }
+            trashController.ProcesarSenal(signal);
         }
+        lastSignalProcessed = signal; // Actualiza la última señal procesada
     }
+}
+
 
     private void OnApplicationQuit()
     {

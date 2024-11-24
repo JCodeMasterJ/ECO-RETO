@@ -23,7 +23,9 @@ public class ScoreManager : MonoBehaviour
     public void RemovePoint()
     {
         //pointSound?.Play();
-        if (score > 0) score--; // Evita puntaje negativo
+        if (score > 0){ 
+            score--;
+        } 
         UpdateScoreText();
     }
 
