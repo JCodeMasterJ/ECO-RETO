@@ -18,7 +18,7 @@ public class TrashController : MonoBehaviour
     //private bool vidaPerdidaPorResiduo = false; // Indica si ya se perdió una vida por el residuo actual
     //private bool cooldownActivo = false; // Control del cooldown
 
-
+    public AlertManager alertManager; // Para los avisos de retroalimenatción
 
     private void Start()
     {
@@ -107,17 +107,26 @@ public class TrashController : MonoBehaviour
         {
             Debug.Log($"¡Correcto! Basura: {senal}");
             scoreManager.AddPoint();
+            alertManager.MostrarAviso("correcto"); // Muestra el aviso "Correcto"
         }
-        if (senal.Trim().ToLower() == "verde" && 
-            (residuoActual.basuraCorrecta.Trim().ToLower() == "negra" || 
-            residuoActual.basuraCorrecta.Trim().ToLower() == "blanca"))
-        {       
+        else
+        {
             Debug.Log($"¡Incorrecto! Basura: {senal}");
             scoreManager.RemovePoint();
+
+            // Mostrar aviso según la basura correcta
+            alertManager.MostrarAviso(residuoActual.basuraCorrecta.ToLower());
         }
-        else {
-            Debug.Log("Así no era");
-        }
+        // if (senal.Trim().ToLower() == "verde" && 
+        //     (residuoActual.basuraCorrecta.Trim().ToLower() == "negra" || 
+        //     residuoActual.basuraCorrecta.Trim().ToLower() == "blanca"))
+        // {       
+        //     Debug.Log($"¡Incorrecto! Basura: {senal}");
+        //     scoreManager.RemovePoint();
+        // }
+        // else {
+        //     Debug.Log("Así no era");
+        // }
 
         
         

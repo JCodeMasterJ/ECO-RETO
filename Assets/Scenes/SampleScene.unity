@@ -557,7 +557,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "botella de pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: blanca
+  basuraCorrecta: blanco
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &36973929
 SpriteRenderer:
@@ -764,7 +764,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "pa\xF1al usado"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: negra
+  basuraCorrecta: negro
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &97003673
 SpriteRenderer:
@@ -1015,7 +1015,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1755853553}
   - {fileID: 123781164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1132,7 +1131,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: pila de libros
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: blanca
+  basuraCorrecta: blanco
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &387181354
 SpriteRenderer:
@@ -1235,7 +1234,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "bolsa de pl\xE1stico"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: blanca
+  basuraCorrecta: blanco
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &409864661
 SpriteRenderer:
@@ -1384,7 +1383,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "papel higi\xE9nico"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: negra
+  basuraCorrecta: negro
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &461866908
 SpriteRenderer:
@@ -1758,7 +1757,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: "caja de cart\xF3n"
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: blanca
+  basuraCorrecta: blanco
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &571342374
 SpriteRenderer:
@@ -2259,7 +2258,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: cd roto
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: negra
+  basuraCorrecta: negro
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &814122724
 SpriteRenderer:
@@ -2517,6 +2516,7 @@ MonoBehaviour:
   maxLives: 3
   heartWidth: 16
   scoreManager: {fileID: 30339907}
+  alertManager: {fileID: 1534232553}
 --- !u!4 &902466084
 Transform:
   m_ObjectHideFlags: 0
@@ -2748,7 +2748,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: camiseta vieja
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: negra
+  basuraCorrecta: negro
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &961568668
 SpriteRenderer:
@@ -3377,7 +3377,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: jarra de vidrio
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: blanca
+  basuraCorrecta: blanco
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1048903702
 SpriteRenderer:
@@ -3480,7 +3480,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: restos de cigarro
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: negra
+  basuraCorrecta: negro
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1054802724
 SpriteRenderer:
@@ -3874,7 +3874,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: tapabocas usado
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: negra
+  basuraCorrecta: negro
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1084347761
 SpriteRenderer:
@@ -4568,6 +4568,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 815075453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1338622075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1338622076}
+  - component: {fileID: 1338622078}
+  - component: {fileID: 1338622077}
+  m_Layer: 5
+  m_Name: Green Alert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1338622076
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338622075}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1732305171}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 97}
+  m_SizeDelta: {x: 1214.0812, y: 1153.6545}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1338622077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338622075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e17b7ad6be5b7ea43b6226fbe15d1f7a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1338622078
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338622075}
+  m_CullTransparentMesh: 1
 --- !u!1 &1390704362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,7 +4795,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: revista de papel
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: blanca
+  basuraCorrecta: blanco
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1396495090
 SpriteRenderer:
@@ -4980,6 +5055,156 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411474504}
   m_CullTransparentMesh: 1
+--- !u!1 &1441243484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441243485}
+  - component: {fileID: 1441243487}
+  - component: {fileID: 1441243486}
+  m_Layer: 5
+  m_Name: Correct Alert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1441243485
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441243484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1732305171}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 97}
+  m_SizeDelta: {x: 1214.0812, y: 1153.6545}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1441243486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441243484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fc4f5f8518c5bb64c98e53c7d92c9cba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1441243487
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441243484}
+  m_CullTransparentMesh: 1
+--- !u!1 &1441631825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441631826}
+  - component: {fileID: 1441631828}
+  - component: {fileID: 1441631827}
+  m_Layer: 5
+  m_Name: BlackAlert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1441631826
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441631825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1732305171}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 97}
+  m_SizeDelta: {x: 1214.0812, y: 1153.6545}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1441631827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441631825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6b6e03778c7e06243ac3a3ec12394fa0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1441631828
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441631825}
+  m_CullTransparentMesh: 1
 --- !u!1 &1447931528
 GameObject:
   m_ObjectHideFlags: 0
@@ -5029,7 +5254,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: lata de cocacola
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: blanca
+  basuraCorrecta: blanco
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1447931531
 SpriteRenderer:
@@ -5238,6 +5463,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532270528}
   m_CullTransparentMesh: 1
+--- !u!1 &1534232551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534232552}
+  - component: {fileID: 1534232553}
+  m_Layer: 0
+  m_Name: AlertManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1534232552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534232551}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755853553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1534232553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534232551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2dff50442bbaa04ba00c8a5a66e232a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avisoCorrecto: {fileID: 1441243484}
+  avisoVerde: {fileID: 1338622075}
+  avisoBlanco: {fileID: 1441631825}
+  avisoNegro: {fileID: 1781669253}
 --- !u!1 &1578165390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,6 +5935,10 @@ RectTransform:
   m_Children:
   - {fileID: 1145037498}
   - {fileID: 650859793}
+  - {fileID: 1441243485}
+  - {fileID: 1338622076}
+  - {fileID: 1441631826}
+  - {fileID: 1781669254}
   m_Father: {fileID: 47420712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5718,7 +5995,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: servilleta sucia
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: negra
+  basuraCorrecta: negro
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1740451154
 SpriteRenderer:
@@ -5797,13 +6074,14 @@ Transform:
   m_GameObject: {fileID: 1755853551}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.66529524, y: 0.1975742, z: 0.02685641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 30339908}
   - {fileID: 902466084}
-  m_Father: {fileID: 285883301}
+  - {fileID: 1534232552}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780867365
 GameObject:
@@ -5854,7 +6132,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: caja de pizza
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: negra
+  basuraCorrecta: negro
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1780867368
 SpriteRenderer:
@@ -5908,6 +6186,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1781669253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781669254}
+  - component: {fileID: 1781669256}
+  - component: {fileID: 1781669255}
+  m_Layer: 5
+  m_Name: White Alert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1781669254
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781669253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1732305171}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 97}
+  m_SizeDelta: {x: 1214.0812, y: 1153.6545}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1781669255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781669253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 150b4df0cfa1594419991c36df377eb7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1781669256
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781669253}
+  m_CullTransparentMesh: 1
 --- !u!1 &1783537562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6107,7 +6460,7 @@ MonoBehaviour:
   duracionMovimiento: 2
   nombreResiduo: caja de pastillas
   textoNombreResiduo: {fileID: 1291072536}
-  basuraCorrecta: blanca
+  basuraCorrecta: blanco
   posicionInicial: {x: 6.16, y: -0.87, z: 0}
 --- !u!212 &1891667599
 SpriteRenderer:
@@ -6934,6 +7287,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1755853553}
   - {fileID: 386721871}
   - {fileID: 1859269112}
   - {fileID: 285883301}
