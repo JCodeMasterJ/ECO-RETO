@@ -847,7 +847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb859418f893fc449b6903139d303f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ipAddress: 192.168.1.18
+  ipAddress: 10.11.206.169
   port: 80
   trashController: {fileID: 902466083}
 --- !u!4 &123781164
@@ -5509,8 +5509,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avisoCorrecto: {fileID: 1441243484}
   avisoVerde: {fileID: 1338622075}
-  avisoBlanco: {fileID: 1441631825}
-  avisoNegro: {fileID: 1781669253}
+  avisoBlanco: {fileID: 1781669253}
+  avisoNegro: {fileID: 1441631825}
   controladorResiduo: {fileID: 2017445491}
 --- !u!1 &1578165390
 GameObject:

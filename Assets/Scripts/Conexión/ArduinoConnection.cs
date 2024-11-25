@@ -6,7 +6,9 @@ using System.Threading;
 
 public class ArduinoConnection : MonoBehaviour
 {
-    public string ipAddress = "192.168.1.18"; // IP del servidor
+    public string ipAddress = "10.11.206.169"; // IP del servidor Universidad
+    // public string ipAddress = "192.168.1.18"; // IP del servidor Casita
+    
     public int port = 80;
 
     private TcpClient socketConnection;

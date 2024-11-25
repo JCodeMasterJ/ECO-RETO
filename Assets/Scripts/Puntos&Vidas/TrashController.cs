@@ -18,6 +18,11 @@ public class TrashController : MonoBehaviour
     //private bool vidaPerdidaPorResiduo = false; // Indica si ya se perdió una vida por el residuo actual
     //private bool cooldownActivo = false; // Control del cooldown
 
+    //CON MUCHA FE
+    private float tiempoEsperando = 0f; // Contador para el mensaje "Esperando..."
+    private bool recibiendoEsperando = false; // Bandera para saber si se está recibiendo "Esperando..."
+
+
     public AlertManager alertManager; // Para los avisos de retroalimenatción
 
     private void Start()
@@ -65,7 +70,7 @@ public class TrashController : MonoBehaviour
         //         temporizadorActivo = false;
         //     }
         // }
-        
+
     }
 
     public void SetResiduoActual(AnimarResiduo residuo)
@@ -79,27 +84,75 @@ public class TrashController : MonoBehaviour
 
     public void ProcesarSenal(string senal)
     {
-        //Debug.Log($"Procesando señal: {senal}");
-        // if (residuoActual == null)
-        // {   
-        //     //Debug.LogWarning("No hay residuo actual configurado.");
+        // if (residuoActual == null) return;
+
+        // // Ignorar señales no válidas
+        // if (string.IsNullOrEmpty(senal) || senal == "Esperando...")
+        // {
+        //     Debug.LogWarning("Señal ignorada: " + senal);
         //     return;
         // }
-        //if (residuoActual == null || cooldownActivo) return;
-        if (residuoActual == null) return;
 
+        // tiempoInactivo = 0f; // Reinicia el temporizador al recibir señal
+
+        // if (string.IsNullOrEmpty(residuoActual.basuraCorrecta))
+        // {   
+        //     Debug.LogWarning("La propiedad 'basuraCorrecta' del residuo actual está vacía o no está configurada.");
+        //     return;
+        // }
+
+        // if (senal.Trim().ToLower() == residuoActual.basuraCorrecta.Trim().ToLower())
+        // {
+        //     Debug.Log($"¡Correcto! Basura: {senal}");
+        //     scoreManager.AddPoint();
+        //     alertManager.MostrarAviso("correcto"); // Muestra el aviso "Correcto"
+        // }
+        // else
+        // {
+        //     Debug.Log($"¡Incorrecto! Basura: {senal}");
+        //     scoreManager.RemovePoint();
+
+        //     // Mostrar aviso según la basura correcta
+        //     alertManager.MostrarAviso(residuoActual.basuraCorrecta.ToLower());
+        // }
         // Ignorar señales no válidas
-        if (string.IsNullOrEmpty(senal) || senal == "Esperando...")
+        if (string.IsNullOrEmpty(senal))
         {
-            Debug.LogWarning("Señal ignorada: " + senal);
+            Debug.LogWarning("Señal vacía o nula ignorada.");
             return;
         }
 
-        tiempoInactivo = 0f; // Reinicia el temporizador al recibir señal
+        // Si se recibe "Esperando..."
+        if (senal.Trim().ToLower() == "Esperando...")
+        {
+            if (!recibiendoEsperando) // Empieza a contar si es el primer "Esperando..."
+            {
+                Debug.Log("Inicia la espera");
+                recibiendoEsperando = true;
+                tiempoEsperando = 0f;
+            }
 
-        if (string.IsNullOrEmpty(residuoActual.basuraCorrecta))
-        {   
-            Debug.LogWarning("La propiedad 'basuraCorrecta' del residuo actual está vacía o no está configurada.");
+            tiempoEsperando += Time.deltaTime;
+
+            // Si alcanza los 10 segundos seguidos, se quita una vida
+            if (tiempoEsperando >= 10f)
+            {
+                PerderVidaPorInactividad();
+                tiempoEsperando = 0f;
+                recibiendoEsperando = false; // Reinicia la bandera
+            }
+
+            return; // No procesamos más si seguimos recibiendo "Esperando..."
+        }
+
+        // Si llega una señal válida, reinicia el contador de "Esperando..."
+        recibiendoEsperando = false;
+        tiempoEsperando = 0f;
+
+        // Procesar las señales válidas
+        if (residuoActual == null)
+        {
+            Debug.LogWarning("No hay residuo actual para evaluar.");
             return;
         }
 
@@ -107,30 +160,15 @@ public class TrashController : MonoBehaviour
         {
             Debug.Log($"¡Correcto! Basura: {senal}");
             scoreManager.AddPoint();
-            alertManager.MostrarAviso("correcto"); // Muestra el aviso "Correcto"
+            alertManager.MostrarAviso("correcto");
         }
         else
         {
             Debug.Log($"¡Incorrecto! Basura: {senal}");
             scoreManager.RemovePoint();
-
-            // Mostrar aviso según la basura correcta
             alertManager.MostrarAviso(residuoActual.basuraCorrecta.ToLower());
         }
-        // if (senal.Trim().ToLower() == "verde" && 
-        //     (residuoActual.basuraCorrecta.Trim().ToLower() == "negra" || 
-        //     residuoActual.basuraCorrecta.Trim().ToLower() == "blanca"))
-        // {       
-        //     Debug.Log($"¡Incorrecto! Basura: {senal}");
-        //     scoreManager.RemovePoint();
-        // }
-        // else {
-        //     Debug.Log("Así no era");
-        // }
 
-        
-        
-        //StartCooldown(); // Activa cooldown después de procesar cualquier señal
         UpdateHUD();
     }
 
@@ -144,6 +182,8 @@ public class TrashController : MonoBehaviour
         // }
         //if (vidaPerdidaPorResiduo) return;
 
+        if (!temporizadorActivo) return; // Evitar múltiples pérdidas de vida
+
         lives--;
         //vidaPerdidaPorResiduo = true;
         Debug.Log("Perdiste una vida por inactividad.");
@@ -153,6 +193,11 @@ public class TrashController : MonoBehaviour
         {
             GameOver();
         }
+        else
+        {
+            CambiarResiduo(); // Cambia al siguiente residuo después de perder una vida
+        }
+
     }
 
     //  private void StartCooldown()
@@ -167,7 +212,7 @@ public class TrashController : MonoBehaviour
     //     cooldownActivo = false;
     //     Debug.Log("Cooldown terminado.");
     // }
-    
+
     private void UpdateHUD()
     {
         // Ajusta el tamaño visible de los corazones
@@ -177,12 +222,25 @@ public class TrashController : MonoBehaviour
             heartsRectTransform.sizeDelta = new Vector2(visibleWidth, heartsRectTransform.sizeDelta.y);
         }
     }
+    private void CambiarResiduo()
+    {
+        var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+        if (controladorResiduo != null)
+        {
+            controladorResiduo.MostrarResiduoAleatorio();
+        }
+        else
+        {
+            Debug.LogWarning("ControladorResiduo no encontrado.");
+        }
+    }
+
 
     private void GameOver()
-{
-    Debug.Log("¡Game Over!");
-    temporizadorActivo = false; // Detener el temporizador
-    // Aquí puedes añadir lógica adicional, como mostrar un mensaje final o reiniciar el juego.
-}
+    {
+        Debug.Log("¡Game Over!");
+        temporizadorActivo = false; // Detener el temporizador
+        // Aquí puedes añadir lógica adicional, como mostrar un mensaje final o reiniciar el juego.
+    }
 
 }
