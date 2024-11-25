@@ -22,7 +22,12 @@ public class ArduinoConnection : MonoBehaviour
     // Cola para pasar señales al hilo principal
     private ConcurrentQueue<string> signalQueue = new ConcurrentQueue<string>();
     private string lastSignalProcessed = ""; // Guarda la última señal procesada
-
+    
+    // Propiedad pública para exponer la última señal procesada
+    public string LastSignalProcessed
+    {
+        get { return lastSignalProcessed; }
+    }
 
     void Start()
     {

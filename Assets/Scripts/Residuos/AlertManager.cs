@@ -13,6 +13,7 @@ public class AlertManager : MonoBehaviour
     // Método público para mostrar un aviso
     public void MostrarAviso(string tipo)
     {
+
         GameObject avisoSeleccionado = null;
 
         switch (tipo.ToLower())
@@ -30,6 +31,18 @@ public class AlertManager : MonoBehaviour
                 avisoSeleccionado = avisoNegro;
                 break;
         }
+        // if (tipo.ToLower() == "correcto"){
+        //     avisoSeleccionado = avisoCorrecto;
+        // }
+        // else if (tipo.ToLower() == "verde"){
+        //     avisoSeleccionado = avisoVerde;
+        // }
+        // else if (tipo.ToLower() == "blanco"){
+        //     avisoSeleccionado = avisoBlanco;
+        // }
+        // else if (tipo.ToLower() == "negro"){
+        //     avisoSeleccionado = avisoCorrecto;
+        // }
 
         if (avisoSeleccionado != null)
         {

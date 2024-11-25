@@ -19,8 +19,8 @@ public class TrashController : MonoBehaviour
     //private bool cooldownActivo = false; // Control del cooldown
 
     //CON MUCHA FE
-    private float tiempoEsperando = 0f; // Contador para el mensaje "Esperando..."
-    private bool recibiendoEsperando = false; // Bandera para saber si se está recibiendo "Esperando..."
+    //private float tiempoEsperando = 0f; // Contador para el mensaje "Esperando..."
+    //private bool recibiendoEsperando = false; // Bandera para saber si se está recibiendo "Esperando..."
 
 
     public AlertManager alertManager; // Para los avisos de retroalimenatción
@@ -115,44 +115,83 @@ public class TrashController : MonoBehaviour
         //     // Mostrar aviso según la basura correcta
         //     alertManager.MostrarAviso(residuoActual.basuraCorrecta.ToLower());
         // }
+
+        // SEGUNDA OPCION NO SIRVIO
+
         // Ignorar señales no válidas
-        if (string.IsNullOrEmpty(senal))
+        // if (string.IsNullOrEmpty(senal))
+        // {
+        //     Debug.LogWarning("Señal vacía o nula ignorada.");
+        //     return;
+        // }
+
+        // // Si se recibe "Esperando..."
+        // if (senal.Trim().ToLower() == "Esperando...")
+        // {
+        //     if (!recibiendoEsperando) // Empieza a contar si es el primer "Esperando..."
+        //     {
+        //         Debug.Log("Inicia la espera");
+        //         recibiendoEsperando = true;
+        //         tiempoEsperando = 0f;
+        //     }
+
+        //     tiempoEsperando += Time.deltaTime;
+
+        //     // Si alcanza los 10 segundos seguidos, se quita una vida
+        //     if (tiempoEsperando >= 10f)
+        //     {
+        //         PerderVidaPorInactividad();
+        //         tiempoEsperando = 0f;
+        //         recibiendoEsperando = false; // Reinicia la bandera
+        //     }
+
+        //     return; // No procesamos más si seguimos recibiendo "Esperando..."
+        // }
+
+        // // Si llega una señal válida, reinicia el contador de "Esperando..."
+        // recibiendoEsperando = false;
+        // tiempoEsperando = 0f;
+
+        // // Procesar las señales válidas
+        // if (residuoActual == null)
+        // {
+        //     Debug.LogWarning("No hay residuo actual para evaluar.");
+        //     return;
+        // }
+
+        // if (senal.Trim().ToLower() == residuoActual.basuraCorrecta.Trim().ToLower())
+        // {
+        //     Debug.Log($"¡Correcto! Basura: {senal}");
+        //     scoreManager.AddPoint();
+        //     alertManager.MostrarAviso("correcto");
+        //     return;
+        // }
+        
+        // Debug.Log($"¡Incorrecto! Basura: {senal}");
+        // scoreManager.RemovePoint();
+        // alertManager.MostrarAviso(residuoActual.basuraCorrecta.ToLower());
+        if (residuoActual == null) return;
+
+        // Acceso a la última señal procesada desde ArduinoConnection
+        var arduinoConnection = FindObjectOfType<ArduinoConnection>();
+        if (arduinoConnection != null && arduinoConnection.LastSignalProcessed == senal.Trim().ToLower())
         {
-            Debug.LogWarning("Señal vacía o nula ignorada.");
+            Debug.Log("Señal ya procesada, ignorando: " + senal);
             return;
         }
 
-        // Si se recibe "Esperando..."
-        if (senal.Trim().ToLower() == "Esperando...")
+        // Ignorar señales no válidas
+        if (string.IsNullOrEmpty(senal) || senal.Trim().ToLower() == "esperando...")
         {
-            if (!recibiendoEsperando) // Empieza a contar si es el primer "Esperando..."
-            {
-                Debug.Log("Inicia la espera");
-                recibiendoEsperando = true;
-                tiempoEsperando = 0f;
-            }
-
-            tiempoEsperando += Time.deltaTime;
-
-            // Si alcanza los 10 segundos seguidos, se quita una vida
-            if (tiempoEsperando >= 10f)
-            {
-                PerderVidaPorInactividad();
-                tiempoEsperando = 0f;
-                recibiendoEsperando = false; // Reinicia la bandera
-            }
-
-            return; // No procesamos más si seguimos recibiendo "Esperando..."
+            Debug.LogWarning("Señal ignorada: " + senal);
+            return;
         }
 
-        // Si llega una señal válida, reinicia el contador de "Esperando..."
-        recibiendoEsperando = false;
-        tiempoEsperando = 0f;
+        tiempoInactivo = 0f; // Reinicia el temporizador al recibir señal válida
 
-        // Procesar las señales válidas
-        if (residuoActual == null)
+        if (string.IsNullOrEmpty(residuoActual.basuraCorrecta))
         {
-            Debug.LogWarning("No hay residuo actual para evaluar.");
+            Debug.LogWarning("La propiedad 'basuraCorrecta' del residuo actual está vacía o no está configurada.");
             return;
         }
 
@@ -168,7 +207,6 @@ public class TrashController : MonoBehaviour
             scoreManager.RemovePoint();
             alertManager.MostrarAviso(residuoActual.basuraCorrecta.ToLower());
         }
-
         UpdateHUD();
     }
 
@@ -235,7 +273,13 @@ public class TrashController : MonoBehaviour
         }
     }
 
-
+    // Método para evitar procesar señales adicionales después de una
+    // private void ResetSignalProcessing()
+    // {
+    //     lastSignalProcessed = ""; // Limpia para nuevas señales después de que se reinicie la lógica
+    //     temporizadorActivo = false; // Detiene el temporizador mientras se prepara el siguiente residuo
+    //     CambiarResiduo(); // Cambia al siguiente residuo automáticamente
+    // }
     private void GameOver()
     {
         Debug.Log("¡Game Over!");
