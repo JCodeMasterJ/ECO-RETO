@@ -6,7 +6,8 @@ using System.Threading;
 
 public class ArduinoConnection : MonoBehaviour
 {
-    public string ipAddress = "10.11.206.169"; // IP del servidor Universidad
+    public string ipAddress; // IP para multiples ESP32
+    // public string ipAddress = "10.11.206.169"; // IP del servidor Universidad
     // public string ipAddress = "192.168.1.18"; // IP del servidor Casita
     
     public int port = 80;
@@ -42,11 +43,11 @@ public class ArduinoConnection : MonoBehaviour
             clientReceiveThread = new Thread(ListenForData);
             clientReceiveThread.IsBackground = true;
             clientReceiveThread.Start();
-            Debug.Log("Conectado al servidor.");
+            Debug.Log($"Conectado al servidor: {ipAddress}");
         }
         catch (System.Exception e)
         {
-            Debug.Log("Error en la conexión: " + e);
+            Debug.Log($"Error en la conexión a {ipAddress}: {e}");
         }
     }
 
@@ -79,7 +80,7 @@ public class ArduinoConnection : MonoBehaviour
         }
         catch (System.Exception ex)
         {
-            Debug.Log("Error: " + ex);
+            Debug.Log($"Error en {ipAddress}: {ex}");
         }
     }
 
@@ -103,7 +104,7 @@ private void Update()
     {
         if (signal == lastSignalProcessed) continue; // Ignorar señales ya procesadas
 
-        Debug.Log($"Procesando señal: {signal}");
+        Debug.Log($"[{ipAddress}] Procesando señal: {signal}");
         if (trashController != null)
         {
             trashController.ProcesarSenal(signal);

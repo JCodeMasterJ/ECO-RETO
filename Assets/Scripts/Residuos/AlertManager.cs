@@ -8,6 +8,7 @@ public class AlertManager : MonoBehaviour
     public GameObject avisoBlanco;  // Aviso para "Fallaste, debía ser blanco"
     public GameObject avisoNegro;   // Aviso para "Fallaste, debía ser negro"
     public ControladorResiduo controladorResiduo; // Controlador para acceder al residuo actual
+    
     private float duracionAviso = 5f; // Duración del aviso en segundos
 
     // Método público para mostrar un aviso
@@ -81,6 +82,12 @@ public class AlertManager : MonoBehaviour
         aviso.SetActive(false);
 
         // No hacemos nada adicional con el residuo ni el texto, ya están desactivados.
+        // Llamar a CambiarResiduo después de que pase el tiempo del aviso
+        var trashController = FindObjectOfType<TrashController>();
+        if (trashController != null)
+        {
+            trashController.CambiarResiduo();
+        }
     }
 
 }

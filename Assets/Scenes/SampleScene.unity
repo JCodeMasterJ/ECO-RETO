@@ -797,12 +797,12 @@ GameObject:
   - component: {fileID: 123781164}
   - component: {fileID: 123781163}
   m_Layer: 0
-  m_Name: ArduinoConnection
+  m_Name: ArduinoConnection_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &123781163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,6 +1118,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 123781164}
+  - {fileID: 1479616498}
+  - {fileID: 1609725935}
+  - {fileID: 1563795497}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &294053821
@@ -5410,6 +5413,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1479616497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479616498}
+  - component: {fileID: 1479616499}
+  m_Layer: 0
+  m_Name: ArduinoConnection_B
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1479616498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479616497}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.29745448, y: 0.052664757, z: 0.021710156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 285883301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1479616499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479616497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb859418f893fc449b6903139d303f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ipAddress: '10.11.206.202 '
+  port: 80
+  trashController: {fileID: 902466083}
 --- !u!1 &1511414273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5569,6 +5619,73 @@ MonoBehaviour:
   avisoBlanco: {fileID: 1781669253}
   avisoNegro: {fileID: 1441631825}
   controladorResiduo: {fileID: 2017445491}
+--- !u!1 &1563795496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563795497}
+  - component: {fileID: 1563795498}
+  - component: {fileID: 1563795499}
+  m_Layer: 0
+  m_Name: ArduinoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563795497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563795496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 285883301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1563795498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563795496}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a3ef546e3044948a9af3934234703f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  espDevices:
+  - ipAddress: 10.11.206.169
+    trashController: {fileID: 902466083}
+  - ipAddress: 10.11.206.202
+    trashController: {fileID: 902466083}
+  - ipAddress: 10.11.206.204
+    trashController: {fileID: 902466083}
+--- !u!114 &1563795499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563795496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a3ef546e3044948a9af3934234703f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  espDevices:
+  - ipAddress: 10.11.206.204
+    trashController: {fileID: 902466083}
 --- !u!1 &1578165390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5620,6 +5737,53 @@ MonoBehaviour:
   _img: {fileID: 31800327}
   _x: 0.2
   _y: 0.2
+--- !u!1 &1609725934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1609725935}
+  - component: {fileID: 1609725936}
+  m_Layer: 0
+  m_Name: ArduinoConnection_G (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1609725935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609725934}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.29745448, y: 0.052664757, z: 0.021710156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 285883301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1609725936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609725934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb859418f893fc449b6903139d303f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ipAddress: 10.11.206.169
+  port: 80
+  trashController: {fileID: 902466083}
 --- !u!1 &1652255003
 GameObject:
   m_ObjectHideFlags: 0

@@ -200,12 +200,14 @@ public class TrashController : MonoBehaviour
             Debug.Log($"¡Correcto! Basura: {senal}");
             scoreManager.AddPoint();
             alertManager.MostrarAviso("correcto");
+            //CambiarResiduo();
         }
         else
         {
             Debug.Log($"¡Incorrecto! Basura: {senal}");
             scoreManager.RemovePoint();
             alertManager.MostrarAviso(residuoActual.basuraCorrecta.ToLower());
+            //CambiarResiduo();
         }
         UpdateHUD();
     }
@@ -260,18 +262,63 @@ public class TrashController : MonoBehaviour
             heartsRectTransform.sizeDelta = new Vector2(visibleWidth, heartsRectTransform.sizeDelta.y);
         }
     }
-    private void CambiarResiduo()
+    // private void CambiarResiduo()
+    // {
+
+    //     var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+    //     if (controladorResiduo != null)
+    //     {
+    //         controladorResiduo.MostrarResiduoAleatorio();
+    //     }
+    //     else
+    //     {
+    //         Debug.LogWarning("ControladorResiduo no encontrado.");
+    //     }
+    // }
+    public void CambiarResiduo()
     {
+        // Obtén el controlador de residuos
         var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+        
         if (controladorResiduo != null)
         {
+            // Accede al residuo actual
+            GameObject residuoActual = controladorResiduo.ObtenerResiduoActual();
+            
+            if (residuoActual != null)
+            {
+                // Oculta el residuo actual
+                residuoActual.SetActive(false);
+
+                // Accede al componente AnimarResiduo
+                var animarResiduo = residuoActual.GetComponent<AnimarResiduo>();
+                if (animarResiduo != null && animarResiduo.textoNombreResiduo != null)
+                {
+                    // Oculta el texto del residuo
+                    animarResiduo.textoNombreResiduo.gameObject.SetActive(false);
+                }
+            }
+
+            // Llama al método para mostrar un residuo aleatorio (nuevo residuo)
             controladorResiduo.MostrarResiduoAleatorio();
+
+            // Ahora que el nuevo residuo está activo, asegúrate de mostrar el texto
+            GameObject nuevoResiduo = controladorResiduo.ObtenerResiduoActual();
+            if (nuevoResiduo != null)
+            {
+                var nuevoAnimarResiduo = nuevoResiduo.GetComponent<AnimarResiduo>();
+                if (nuevoAnimarResiduo != null && nuevoAnimarResiduo.textoNombreResiduo != null)
+                {
+                    nuevoAnimarResiduo.textoNombreResiduo.gameObject.SetActive(true); // Activa el texto
+                }
+            }
         }
         else
         {
             Debug.LogWarning("ControladorResiduo no encontrado.");
         }
     }
+
 
     // Método para evitar procesar señales adicionales después de una
     // private void ResetSignalProcessing()
