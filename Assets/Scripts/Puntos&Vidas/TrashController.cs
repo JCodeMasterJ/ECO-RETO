@@ -122,12 +122,45 @@ public class TrashController : MonoBehaviour
         }
     }
 
+    // public void GameOver()
+    // {
+    //     Debug.Log("¡Game Over!");
+    //     textoGamOver.SetActive(true);
+    //     gameOverSound.Play();
+    //     // Aquí puedes añadir lógica adicional, como mostrar un mensaje final o reiniciar el juego.
+    // }
     public void GameOver()
     {
         Debug.Log("¡Game Over!");
+
+        // Desactiva todos los residuos
+        var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+        if (controladorResiduo != null)
+        {
+            GameObject residuoActual = controladorResiduo.ObtenerResiduoActual();
+            if (residuoActual != null)
+            {
+                residuoActual.SetActive(false); // Desactiva el residuo actual
+                var animarResiduo = residuoActual.GetComponent<AnimarResiduo>();
+                if (animarResiduo != null && animarResiduo.textoNombreResiduo != null)
+                {
+                    animarResiduo.textoNombreResiduo.gameObject.SetActive(false); // Oculta el texto del residuo
+                }
+            }
+        }
+
+        // Muestra el texto de Game Over
         textoGamOver.SetActive(true);
-        gameOverSound.Play();
-        // Aquí puedes añadir lógica adicional, como mostrar un mensaje final o reiniciar el juego.
+
+        // Reproduce el sonido de Game Over si está disponible
+        if (gameOverSound != null)
+        {
+            gameOverSound.Play();
+        }
+
+        // Opcional: Pausa el juego
+        Time.timeScale = 0f; // Detiene el tiempo para pausar el juego
     }
+
 
 }

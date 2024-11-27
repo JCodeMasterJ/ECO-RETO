@@ -16,19 +16,43 @@ public class AnimarResiduo : MonoBehaviour
     public Vector3 posicionInicial;
     private TrashController trashController; // TrashController Conection
 
+    // private void Start()
+    // {
+    //     escalaInicial = transform.localScale;
+    //     posicionInicial = transform.localPosition;
+    //     //textoNombreResiduo.text = ""; // Inicia el texto vacío
+    //     textoNombreResiduo = GameObject.Find("Text_Residuos").GetComponent<TextMeshProUGUI>();
+    //     //Conexión con el trashController
+    //     trashController = FindObjectOfType<TrashController>();
+    //     if (trashController != null)
+    //     {
+    //         trashController.SetResiduoActual(this);
+    //     }
+    // }
     private void Start()
     {
         escalaInicial = transform.localScale;
         posicionInicial = transform.localPosition;
-        //textoNombreResiduo.text = ""; // Inicia el texto vacío
-        textoNombreResiduo = GameObject.Find("Text_Residuos").GetComponent<TextMeshProUGUI>();
-        //Conexión con el trashController
+
+        var textoObject = GameObject.Find("Text_Residuos");
+        if (textoObject != null)
+        {
+            textoNombreResiduo = textoObject.GetComponent<TextMeshProUGUI>();
+        }
+
+        if (textoNombreResiduo == null)
+        {
+            Debug.LogWarning("No se encontró el objeto 'Text_Residuos' o el componente TextMeshProUGUI.");
+        }
+
+        // Conexión con el TrashController
         trashController = FindObjectOfType<TrashController>();
         if (trashController != null)
         {
             trashController.SetResiduoActual(this);
         }
     }
+
 
     public void IniciarMovimiento()
     {
