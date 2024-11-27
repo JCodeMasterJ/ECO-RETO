@@ -131,4 +131,12 @@ public class LifeManager : MonoBehaviour
             heartsRectTransform.sizeDelta = new Vector2(visibleWidth, heartsRectTransform.sizeDelta.y);
         }
     }
+
+    public void RestartLives()
+    {
+        lives = maxLives;
+        UpdateHUD();
+        Debug.Log("Vidas reiniciadas.");
+    }
+
 }

@@ -28,5 +28,17 @@ public class ControladorResiduo : MonoBehaviour
     {
         return residuoActual;
     }
+    public void ResetResiduos()
+    {
+        foreach (var residuo in residuos)
+        {
+            residuo.SetActive(false); // Asegúrate de desactivar todos los residuos
+        }
+
+        // Mostrar el primer residuo
+        MostrarResiduoAleatorio();
+        Debug.Log("Residuos reiniciados.");
+    }
+
 
 }

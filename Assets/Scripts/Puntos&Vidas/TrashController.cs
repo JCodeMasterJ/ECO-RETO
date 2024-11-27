@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class TrashController : MonoBehaviour
  {
@@ -9,6 +11,7 @@ public class TrashController : MonoBehaviour
     public AlertManager alertManager; // Para los avisos de retroalimenatción
     private AnimarResiduo residuoActual;
     public GameObject textoGamOver;
+    public GameObject botonRestart; // Botón de Restart
     public AudioSource gameOverSound;
     
     // private void Start()
@@ -151,6 +154,7 @@ public class TrashController : MonoBehaviour
 
         // Muestra el texto de Game Over
         textoGamOver.SetActive(true);
+        botonRestart.SetActive(true); // Activar el botón de reinicio
 
         // Reproduce el sonido de Game Over si está disponible
         if (gameOverSound != null)
@@ -161,6 +165,44 @@ public class TrashController : MonoBehaviour
         // Opcional: Pausa el juego
         Time.timeScale = 0f; // Detiene el tiempo para pausar el juego
     }
+
+    public void RestartGame()
+    {
+        Debug.Log("Reiniciando el juego...");
+
+        // Reiniciar el score
+        if (scoreManager != null)
+        {
+            scoreManager.ResetScore();
+        }
+
+        // Reiniciar las vidas
+        if (lifeManager != null)
+        {
+            lifeManager.RestartLives();
+        }
+
+        // Reiniciar residuos
+        var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+        if (controladorResiduo != null)
+        {
+            controladorResiduo.ResetResiduos(); // Este método lo implementaremos en el controlador de residuos
+        }
+
+        // Ocultar el texto de Game Over
+        if (textoGamOver != null)
+        {
+            textoGamOver.SetActive(false);
+        }
+
+        // Restablecer el tiempo si estaba pausado
+        Time.timeScale = 1f;
+
+        // Reinicia la escena actual
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Juego reiniciado correctamente.");
+    }
+
 
 
 }
