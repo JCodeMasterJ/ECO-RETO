@@ -41,23 +41,69 @@ public class AlertManager : MonoBehaviour
             StartCoroutine(MostrarAvisoConOcultarCentro(avisoSeleccionado));
         }
     }
+    // public void MostrarAvisoInactividad()
+    // {
+    //     StartCoroutine(MostrarAvisoInactividadCoroutine());
+    // }
+    
+
+    // private IEnumerator MostrarAvisoInactividadCoroutine()
+    // {
+    //     // Muestra el aviso en pantalla
+    //     // GameObject avisoInactividad = // referencia al aviso "Perdiste una vida por inactividad"
+    //     avisoInactividad.SetActive(true);
+
+    //     // Espera 3 segundos
+    //     yield return new WaitForSeconds(3f);
+
+    //     // Oculta el aviso
+    //     avisoInactividad.SetActive(false);
+    // }
     public void MostrarAvisoInactividad()
+{
+    StartCoroutine(MostrarAvisoInactividadCoroutine());
+}
+
+private IEnumerator MostrarAvisoInactividadCoroutine()
+{
+    // Ocultar el residuo y su texto antes de mostrar el aviso
+    var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+    if (controladorResiduo != null)
     {
-        StartCoroutine(MostrarAvisoInactividadCoroutine());
+        // Accede al residuo actual
+        GameObject residuoActual = controladorResiduo.ObtenerResiduoActual();
+
+        if (residuoActual != null)
+        {
+            residuoActual.SetActive(false); // Oculta el residuo
+
+            var animarResiduo = residuoActual.GetComponent<AnimarResiduo>();
+            if (animarResiduo != null && animarResiduo.textoNombreResiduo != null)
+            {
+                animarResiduo.textoNombreResiduo.gameObject.SetActive(false); // Oculta el texto del residuo
+            }
+        }
     }
 
-    private IEnumerator MostrarAvisoInactividadCoroutine()
+    // Mostrar el aviso
+    avisoInactividad.SetActive(true);
+
+    // Esperar 3 segundos
+    yield return new WaitForSeconds(3f);
+
+    // Ocultar el aviso
+    avisoInactividad.SetActive(false);
+
+    // Cambiar al siguiente residuo después de que desaparezca el aviso
+    if (controladorResiduo != null)
     {
-        // Muestra el aviso en pantalla
-        // GameObject avisoInactividad = // referencia al aviso "Perdiste una vida por inactividad"
-        avisoInactividad.SetActive(true);
-
-        // Espera 3 segundos
-        yield return new WaitForSeconds(3f);
-
-        // Oculta el aviso
-        avisoInactividad.SetActive(false);
+        controladorResiduo.MostrarResiduoAleatorio();
     }
+
+    // Reinicia el temporizador para medir la inactividad
+    // IniciarTemporizador();
+}
+
 
 
     // private IEnumerator MostrarAvisoTemporal(GameObject aviso)
