@@ -7,6 +7,8 @@ public class AlertManager : MonoBehaviour
     public GameObject avisoVerde;   // Aviso para "Fallaste, debía ser verde"
     public GameObject avisoBlanco;  // Aviso para "Fallaste, debía ser blanco"
     public GameObject avisoNegro;   // Aviso para "Fallaste, debía ser negro"
+    public GameObject avisoInactividad;
+
     public ControladorResiduo controladorResiduo; // Controlador para acceder al residuo actual
     
     private float duracionAviso = 5f; // Duración del aviso en segundos
@@ -32,18 +34,6 @@ public class AlertManager : MonoBehaviour
                 avisoSeleccionado = avisoNegro;
                 break;
         }
-        // if (tipo.ToLower() == "correcto"){
-        //     avisoSeleccionado = avisoCorrecto;
-        // }
-        // else if (tipo.ToLower() == "verde"){
-        //     avisoSeleccionado = avisoVerde;
-        // }
-        // else if (tipo.ToLower() == "blanco"){
-        //     avisoSeleccionado = avisoBlanco;
-        // }
-        // else if (tipo.ToLower() == "negro"){
-        //     avisoSeleccionado = avisoCorrecto;
-        // }
 
         if (avisoSeleccionado != null)
         {
@@ -51,6 +41,24 @@ public class AlertManager : MonoBehaviour
             StartCoroutine(MostrarAvisoConOcultarCentro(avisoSeleccionado));
         }
     }
+    public void MostrarAvisoInactividad()
+    {
+        StartCoroutine(MostrarAvisoInactividadCoroutine());
+    }
+
+    private IEnumerator MostrarAvisoInactividadCoroutine()
+    {
+        // Muestra el aviso en pantalla
+        // GameObject avisoInactividad = // referencia al aviso "Perdiste una vida por inactividad"
+        avisoInactividad.SetActive(true);
+
+        // Espera 3 segundos
+        yield return new WaitForSeconds(3f);
+
+        // Oculta el aviso
+        avisoInactividad.SetActive(false);
+    }
+
 
     // private IEnumerator MostrarAvisoTemporal(GameObject aviso)
     // {

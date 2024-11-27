@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class LifeManager : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class LifeManager : MonoBehaviour
     public float heartWidth = 16f; // Ancho de un corazón individual (en píxeles)
     public float limiteInactividad = 10f; // Límite de tiempo de inactividad para perder una vida
     public TrashController trashController; // Controlador para cambiar el residuo después de perder una vida
+
+    public AlertManager alertManager;
 
     private int lives;
     private float tiempoInactivo = 0f; // Tiempo de inactividad
@@ -66,20 +70,43 @@ public class LifeManager : MonoBehaviour
         Debug.Log($"Perdiste una vida. Vidas restantes: {lives}");
         UpdateHUD();
 
-        if (lives <= 0)
+        // if (lives <= 0)
+        // {
+        //     GameOver();
+        // }
+        // else
+        // {
+        //     // Cambiar residuo si hay vidas restantes
+        //     if (trashController != null)
+        //     {
+        //         trashController.CambiarResiduo();
+        //     }
+        // }
+
+        // Mostrar aviso de pérdida de vida por inactividad y pausar
+        StartCoroutine(PausaPorInactividad());
+    }
+    private IEnumerator PausaPorInactividad()
+    {
+        // Mostrar el aviso a través del AlertManager
+        if (alertManager != null)
         {
-            GameOver();
+            alertManager.MostrarAvisoInactividad();
+        }
+
+        // Pausar por 3 segundos
+        yield return new WaitForSeconds(3f);
+
+        // Continuar con el flujo
+        if (lives > 0)
+        {
+            trashController.CambiarResiduo(); // Cambia al siguiente residuo si hay vidas restantes
         }
         else
         {
-            // Cambiar residuo si hay vidas restantes
-            if (trashController != null)
-            {
-                trashController.CambiarResiduo();
-            }
+            GameOver(); // Termina el juego si ya no hay vidas
         }
     }
-
     private void GameOver()
     {
         Debug.Log("¡Game Over!");
