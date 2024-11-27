@@ -8,6 +8,8 @@ public class TrashController : MonoBehaviour
     public LifeManager lifeManager; // Para la gestión de vidas
     public AlertManager alertManager; // Para los avisos de retroalimenatción
     private AnimarResiduo residuoActual;
+    public GameObject textoGamOver;
+    public AudioSource gameOverSound;
     
     // private void Start()
     // {
@@ -120,9 +122,11 @@ public class TrashController : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         Debug.Log("¡Game Over!");
+        textoGamOver.SetActive(true);
+        gameOverSound.Play();
         // Aquí puedes añadir lógica adicional, como mostrar un mensaje final o reiniciar el juego.
     }
 

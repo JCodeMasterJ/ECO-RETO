@@ -9,8 +9,9 @@ public class LifeManager : MonoBehaviour
     public float heartWidth = 16f; // Ancho de un corazón individual (en píxeles)
     public float limiteInactividad = 10f; // Límite de tiempo de inactividad para perder una vida
     public TrashController trashController; // Controlador para cambiar el residuo después de perder una vida
-
     public AlertManager alertManager;
+    public AudioSource lifeLostSound;
+
 
     private int lives;
     private float tiempoInactivo = 0f; // Tiempo de inactividad
@@ -64,9 +65,18 @@ public class LifeManager : MonoBehaviour
 
     private void PerderVida()
     {
-        if (lives <= 0) return; // Evita perder más vidas si ya es Game Over
+        if (lives <= 0){
+            trashController.GameOver();  // Llamar al GameOver desde TrashController
+            return; // Evita perder más vidas si ya es Game Over
+        }
+            
+            
 
         lives--;
+        if (lifeLostSound != null)
+        {
+            lifeLostSound.Play();
+        }
         Debug.Log($"Perdiste una vida. Vidas restantes: {lives}");
         UpdateHUD();
 
@@ -104,14 +114,14 @@ public class LifeManager : MonoBehaviour
         }
         else
         {
-            GameOver(); // Termina el juego si ya no hay vidas
+            trashController.GameOver(); // Termina el juego si ya no hay vidas
         }
     }
-    private void GameOver()
-    {
-        Debug.Log("¡Game Over!");
-        // Aquí puedes agregar lógica para detener el juego o mostrar pantalla final
-    }
+    // private void GameOver()
+    // {
+    //     Debug.Log("¡Game Over!");
+    //     // Aquí puedes agregar lógica para detener el juego o mostrar pantalla final
+    // }
 
     private void UpdateHUD()
     {
