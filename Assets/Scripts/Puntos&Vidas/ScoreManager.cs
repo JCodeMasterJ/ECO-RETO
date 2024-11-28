@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
     //public AudioSource pointSound;
     public TextMeshProUGUI scoreTextMesh; // Referencia directa
     public AudioSource pointSound;
+    public AudioSource pointLostSound;
     private int score = 0;
 
     private void Start()
@@ -28,6 +29,8 @@ public class ScoreManager : MonoBehaviour
         if (score > 0){ 
             score--;
         } 
+        pointLostSound.Play();
+
         UpdateScoreText();
     }
 
