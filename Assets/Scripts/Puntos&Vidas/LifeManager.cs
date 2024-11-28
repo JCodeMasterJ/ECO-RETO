@@ -105,7 +105,7 @@ public class LifeManager : MonoBehaviour
         }
 
         // Pausar por 3 segundos
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
 
         // Continuar con el flujo
         if (lives > 0)
