@@ -57,6 +57,11 @@ public class ControladorResiduo : MonoBehaviour
         // Debug.Log("Residuos reiniciados.");
         Debug.Log("Residuos reiniciados.");
     }
+    public bool EstaListaVacia()
+    {
+        return residuosDisponibles.Count == 0;
+    }
+
 
 
 }

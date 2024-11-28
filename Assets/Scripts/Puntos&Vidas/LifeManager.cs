@@ -17,6 +17,8 @@ public class LifeManager : MonoBehaviour
     private float tiempoInactivo = 0f; // Tiempo de inactividad
     private RectTransform heartsRectTransform; // Para actualizar el HUD
     private bool temporizadorActivo = false; // Temporizador para controlar la inactividad
+    private bool pausaPorInactividad = false;
+    private bool juegoTerminado = false;
 
     private void Start()
     {
@@ -33,7 +35,7 @@ public class LifeManager : MonoBehaviour
 
     private void Update()
     {
-        if (!temporizadorActivo) return;
+        if (!temporizadorActivo || pausaPorInactividad) return;
 
         tiempoInactivo += Time.deltaTime;
 
@@ -63,41 +65,74 @@ public class LifeManager : MonoBehaviour
         tiempoInactivo = 0f;
     }
 
+    // private void PerderVida()
+    // {
+    //     if (lives <= 0){
+    //         trashController.GameOver();  // Llamar al GameOver desde TrashController
+    //         return; // Evita perder más vidas si ya es Game Over
+    //     }
+
+    //     lives--;
+    //     if (lifeLostSound != null)
+    //     {
+    //         lifeLostSound.Play();
+    //     }
+    //     Debug.Log($"Perdiste una vida. Vidas restantes: {lives}");
+    //     UpdateHUD();
+
+    //     // if (lives <= 0)
+    //     // {
+    //     //     GameOver();
+    //     // }
+    //     // else
+    //     // {
+    //     //     // Cambiar residuo si hay vidas restantes
+    //     //     if (trashController != null)
+    //     //     {
+    //     //         trashController.CambiarResiduo();
+    //     //     }
+    //     // }
+
+    //     // Mostrar aviso de pérdida de vida por inactividad y pausar
+    //     StartCoroutine(PausaPorInactividad());
+    // }
+    
+
     private void PerderVida()
     {
-        if (lives <= 0){
-            trashController.GameOver();  // Llamar al GameOver desde TrashController
-            return; // Evita perder más vidas si ya es Game Over
+        if (juegoTerminado) return; // Si el juego ha terminado, no hacer nada
+
+        var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+        if (controladorResiduo != null && controladorResiduo.EstaListaVacia())
+        {
+            juegoTerminado = true;
+            Debug.Log("No quedan más residuos. Deteniendo lógica de juego.");
+            return;
         }
-            
-            
+
+        if (lives <= 0)
+        {
+            trashController.GameOver(); 
+            juegoTerminado = true; // Detiene toda lógica futura
+            return;
+        }
 
         lives--;
         if (lifeLostSound != null)
         {
             lifeLostSound.Play();
         }
+
         Debug.Log($"Perdiste una vida. Vidas restantes: {lives}");
         UpdateHUD();
 
-        // if (lives <= 0)
-        // {
-        //     GameOver();
-        // }
-        // else
-        // {
-        //     // Cambiar residuo si hay vidas restantes
-        //     if (trashController != null)
-        //     {
-        //         trashController.CambiarResiduo();
-        //     }
-        // }
-
-        // Mostrar aviso de pérdida de vida por inactividad y pausar
         StartCoroutine(PausaPorInactividad());
     }
+
     private IEnumerator PausaPorInactividad()
-    {
+    {   
+        pausaPorInactividad = true; // Activa la pausa
+
         // Mostrar el aviso a través del AlertManager
         if (alertManager != null)
         {
@@ -116,6 +151,7 @@ public class LifeManager : MonoBehaviour
         {
             trashController.GameOver(); // Termina el juego si ya no hay vidas
         }
+        pausaPorInactividad = false; // Desactiva la pausa
     }
     // private void GameOver()
     // {
