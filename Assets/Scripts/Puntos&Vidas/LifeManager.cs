@@ -17,8 +17,12 @@ public class LifeManager : MonoBehaviour
     private float tiempoInactivo = 0f; // Tiempo de inactividad
     private RectTransform heartsRectTransform; // Para actualizar el HUD
     private bool temporizadorActivo = false; // Temporizador para controlar la inactividad
-    private bool pausaPorInactividad = false;
+    // private bool pausaPorInactividad = false;
     private bool juegoTerminado = false;
+    // private bool enCambioDeResiduo = false; // Evita múltiples cambios simultáneos
+    private bool pausaPorInactividad = false; // Indica si está en pausa por inactividad
+
+
 
     private void Start()
     {
@@ -35,7 +39,7 @@ public class LifeManager : MonoBehaviour
 
     private void Update()
     {
-        if (!temporizadorActivo || pausaPorInactividad) return;
+        if (!temporizadorActivo || pausaPorInactividad || juegoTerminado) return;
 
         tiempoInactivo += Time.deltaTime;
 
@@ -48,9 +52,12 @@ public class LifeManager : MonoBehaviour
 
     public void IniciarTemporizador()
     {
-        temporizadorActivo = true;
-        tiempoInactivo = 0f;
-        Debug.Log("Temporizador de inactividad iniciado.");
+        if(!juegoTerminado){
+            temporizadorActivo = true;
+            tiempoInactivo = 0f;
+            Debug.Log("Temporizador de inactividad iniciado.");
+        }
+        
     }
 
     public void DetenerTemporizador()
@@ -102,13 +109,16 @@ public class LifeManager : MonoBehaviour
     {
         if (juegoTerminado) return; // Si el juego ha terminado, no hacer nada
 
-        var controladorResiduo = FindObjectOfType<ControladorResiduo>();
-        if (controladorResiduo != null && controladorResiduo.EstaListaVacia())
-        {
-            juegoTerminado = true;
-            Debug.Log("No quedan más residuos. Deteniendo lógica de juego.");
-            return;
-        }
+        // var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+        // if (controladorResiduo != null && controladorResiduo.EstaListaVacia())
+        // {
+        //     juegoTerminado = true;
+        //     Debug.Log("No quedan más residuos. Deteniendo lógica de juego.");
+        //     return;
+        // }
+
+        lives--;
+        UpdateHUD();
 
         if (lives <= 0)
         {
@@ -117,22 +127,44 @@ public class LifeManager : MonoBehaviour
             return;
         }
 
-        lives--;
+        
         if (lifeLostSound != null)
         {
             lifeLostSound.Play();
         }
 
         Debug.Log($"Perdiste una vida. Vidas restantes: {lives}");
-        UpdateHUD();
+        
 
         StartCoroutine(PausaPorInactividad());
     }
 
-    private IEnumerator PausaPorInactividad()
+    public  IEnumerator PausaPorInactividad()
     {   
-        pausaPorInactividad = true; // Activa la pausa
+        pausaPorInactividad = true; // Activar pausa
+        Debug.Log("Pausa por inactividad iniciada.");
 
+        // pausaPorInactividad = true; // Activa la pausa
+        // if (enCambioDeResiduo) yield break; // Detén si ya hay un cambio en progreso
+
+        // enCambioDeResiduo = true; // Bloquea más cambios
+        // NUEVO
+        // Oculta el residuo actual
+        // var controladorResiduo = FindObjectOfType<ControladorResiduo>();
+        // if (controladorResiduo != null)
+        // {
+        //     GameObject residuoActual = controladorResiduo.ObtenerResiduoActual();
+        //     if (residuoActual != null)
+        //     {
+        //         residuoActual.SetActive(false);
+        //         var animarResiduo = residuoActual.GetComponent<AnimarResiduo>();
+        //         if (animarResiduo != null && animarResiduo.textoNombreResiduo != null)
+        //         {
+        //             animarResiduo.textoNombreResiduo.gameObject.SetActive(false); // Oculta el texto del residuo actual
+        //         }
+        //     }
+        // }
+        // TERMINA LO NUEVO
         // Mostrar el aviso a través del AlertManager
         if (alertManager != null)
         {
@@ -142,22 +174,35 @@ public class LifeManager : MonoBehaviour
         // Pausar por 3 segundos
         yield return new WaitForSeconds(4f);
 
-        // Continuar con el flujo
-        if (lives > 0)
+        pausaPorInactividad = false;
+
+        // // Continuar con el flujo
+        // if (lives > 0)
+        // {
+        //     trashController.CambiarResiduo(); // Cambia al siguiente residuo si hay vidas restantes
+        // }
+        // else
+        // {
+        //     trashController.GameOver(); // Termina el juego si ya no hay vidas
+        // }
+        // // pausaPorInactividad = false; // Desactiva la pausa
+        // enCambioDeResiduo = false; // Desbloquea cambios
+        if (!juegoTerminado)
         {
-            trashController.CambiarResiduo(); // Cambia al siguiente residuo si hay vidas restantes
+            trashController.CambiarResiduo();
+        }else{
+            trashController.GameOver();
         }
-        else
-        {
-            trashController.GameOver(); // Termina el juego si ya no hay vidas
-        }
-        pausaPorInactividad = false; // Desactiva la pausa
     }
     // private void GameOver()
     // {
     //     Debug.Log("¡Game Over!");
     //     // Aquí puedes agregar lógica para detener el juego o mostrar pantalla final
     // }
+    public bool EstaEnPausa()
+    {
+        return pausaPorInactividad; // Devuelve el estado actual de la pausa
+    }
 
     private void UpdateHUD()
     {

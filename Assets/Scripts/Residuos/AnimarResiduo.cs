@@ -56,6 +56,12 @@ public class AnimarResiduo : MonoBehaviour
 
     public void IniciarMovimiento()
     {
+        var lifeManager = FindObjectOfType<LifeManager>();
+        if (lifeManager != null && lifeManager.EstaEnPausa())
+        {
+            Debug.Log("El juego está en pausa. Movimiento no iniciado.");
+            return;
+        }
         // Empieza el movimiento del residuo hacia el centro con un escalado
         StartCoroutine(MoverYEscalarResiduo());
         // Notificar al TrashController que debe iniciar el temporizador

@@ -103,21 +103,31 @@ public class TrashController : MonoBehaviour
                 }
             }
 
-            // Llama al método para mostrar un residuo aleatorio (nuevo residuo)
-            controladorResiduo.MostrarResiduoAleatorio();
-
-            // Ahora que el nuevo residuo está activo, asegúrate de mostrar el texto
-            GameObject nuevoResiduo = controladorResiduo.ObtenerResiduoActual();
-            if (nuevoResiduo != null)
+            // // Llama al método para mostrar un residuo aleatorio (nuevo residuo)
+            // controladorResiduo.MostrarResiduoAleatorio();
+            // Obtiene un nuevo residuo si hay disponibles
+            if (!controladorResiduo.EstaListaVacia())
             {
-                var nuevoAnimarResiduo = nuevoResiduo.GetComponent<AnimarResiduo>();
-                if (nuevoAnimarResiduo != null && nuevoAnimarResiduo.textoNombreResiduo != null)
+                controladorResiduo.MostrarResiduoAleatorio();
+                // Ahora que el nuevo residuo está activo, asegúrate de mostrar el texto
+                GameObject nuevoResiduo = controladorResiduo.ObtenerResiduoActual();
+                if (nuevoResiduo != null)
                 {
-                    nuevoAnimarResiduo.textoNombreResiduo.gameObject.SetActive(true); // Activa el texto
+                    var nuevoAnimarResiduo = nuevoResiduo.GetComponent<AnimarResiduo>();
+                    if (nuevoAnimarResiduo != null && nuevoAnimarResiduo.textoNombreResiduo != null)
+                    {
+                        nuevoAnimarResiduo.textoNombreResiduo.gameObject.SetActive(true); // Activa el texto
+                    }
                 }
+                // Inicia el temporizador para medir inactividad
+                lifeManager.IniciarTemporizador();
             }
-            // Inicia el temporizador para medir inactividad
-            lifeManager.IniciarTemporizador();
+            else
+            {
+                Debug.LogWarning("No hay más residuos disponibles para mostrar.");
+            }
+            
+            
         }
         else
         {
