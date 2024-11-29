@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 
 public class TrashController : MonoBehaviour
@@ -15,6 +17,11 @@ public class TrashController : MonoBehaviour
     public GameObject botonRestart; // Botón de Restart
     public AudioSource gameOverSound;
     public GameObject felicitacionesPanel; // Panel de felicitaciones
+
+    // TABLA DE PUNTUACIÓN
+    public GameObject inputNamePanel; // Panel de entrada de nombre
+    public TMP_InputField playerNameInput; // Campo de entrada de nombre
+    public ScoreBoardManager scoreboardManager; // Referencia al ScoreboardManager
 
     
     // private void Start()
@@ -136,7 +143,12 @@ public class TrashController : MonoBehaviour
                 {
                     felicitacionesPanel.SetActive(true);
                     Debug.Log("¡Felicidades! Mostrando panel de felicitaciones.");
+                    //yield return new WaitForSeconds(4f);
+                    StartCoroutine(OcultarFelicitaciones());
+                    // MostrarInputNombre();
                 }
+                // Después de mostrar las felicitaciones, activa el flujo para la tabla de puntuaciones
+                
 
             }
             
@@ -145,6 +157,17 @@ public class TrashController : MonoBehaviour
         else
         {
             Debug.LogWarning("ControladorResiduo no encontrado.");
+        }
+    }
+    public IEnumerator OcultarFelicitaciones()
+    {
+        if (felicitacionesPanel != null)
+        {
+            yield return new WaitForSeconds(4f);
+
+            MostrarInputNombre();
+
+            felicitacionesPanel.SetActive(false);
         }
     }
 
@@ -187,6 +210,9 @@ public class TrashController : MonoBehaviour
 
         // Opcional: Pausa el juego
         Time.timeScale = 0f; // Detiene el tiempo para pausar el juego
+
+        // Mostrar input para el nombre del jugador
+        MostrarInputNombre();
     }
 
     public void RestartGame()
@@ -226,6 +252,39 @@ public class TrashController : MonoBehaviour
         Debug.Log("Juego reiniciado correctamente.");
     }
 
+    public void MostrarInputNombre()
+    {
+        if (inputNamePanel != null)
+        {
+            inputNamePanel.SetActive(true);
+        }
+    }
+
+    public void GuardarPuntuacion()
+    {
+        if (playerNameInput != null && scoreboardManager != null)
+        {
+            string playerName = playerNameInput.text.Trim();
+            if (!string.IsNullOrEmpty(playerName))
+            {
+                int finalScore = scoreManager.GetScore();
+                scoreboardManager.AddScore(playerName, finalScore);
+
+                // Ocultar panel de entrada de nombre
+                if (inputNamePanel != null)
+                {
+                    inputNamePanel.SetActive(false);
+                }
+
+                // Mostrar la tabla de puntuaciones
+                scoreboardManager.ShowScoreboard();
+            }
+            else
+            {
+                Debug.LogWarning("El nombre del jugador está vacío.");
+            }
+        }
+    }
 
 
 }
