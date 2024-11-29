@@ -219,5 +219,13 @@ public class LifeManager : MonoBehaviour
         UpdateHUD();
         Debug.Log("Vidas reiniciadas.");
     }
+    public void DetenerLogicaDeVidas()
+    {
+        juegoTerminado = true; // Detiene toda lógica de vidas
+        temporizadorActivo = false;
+        pausaPorInactividad = false;
+        Debug.Log("Lógica de vidas detenida. No más pérdidas de vidas.");
+    }
+
 
 }

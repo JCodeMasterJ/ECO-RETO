@@ -10,9 +10,12 @@ public class TrashController : MonoBehaviour
     public LifeManager lifeManager; // Para la gestión de vidas
     public AlertManager alertManager; // Para los avisos de retroalimenatción
     private AnimarResiduo residuoActual;
+    
     public GameObject textoGamOver;
     public GameObject botonRestart; // Botón de Restart
     public AudioSource gameOverSound;
+    public GameObject felicitacionesPanel; // Panel de felicitaciones
+
     
     // private void Start()
     // {
@@ -124,7 +127,17 @@ public class TrashController : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("No hay más residuos disponibles para mostrar.");
+                
+                Debug.LogWarning("No hay más residuos disponibles. GOOD ENDING.");
+                lifeManager.DetenerLogicaDeVidas();
+
+                // Mostrar mensaje de felicitaciones
+                if (felicitacionesPanel != null)
+                {
+                    felicitacionesPanel.SetActive(true);
+                    Debug.Log("¡Felicidades! Mostrando panel de felicitaciones.");
+                }
+
             }
             
             
