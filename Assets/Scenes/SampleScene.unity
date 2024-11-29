@@ -8048,13 +8048,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563795496}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24a3ef546e3044948a9af3934234703f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   espDevices:
+  - ipAddress: 10.11.206.202
+    trashController: {fileID: 902466083}
   - ipAddress: 10.11.206.204
+    trashController: {fileID: 902466083}
+  - ipAddress: 10.11.206.169
     trashController: {fileID: 902466083}
 --- !u!114 &1563795499
 MonoBehaviour:
@@ -8063,7 +8067,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563795496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24a3ef546e3044948a9af3934234703f, type: 3}
   m_Name: 
