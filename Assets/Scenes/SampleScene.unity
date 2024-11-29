@@ -6746,7 +6746,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563795496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24a3ef546e3044948a9af3934234703f, type: 3}
   m_Name: 
@@ -6761,13 +6761,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563795496}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24a3ef546e3044948a9af3934234703f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   espDevices:
   - ipAddress: 192.168.1.19
+    trashController: {fileID: 902466083}
+  - ipAddress: 192.168.1.20
+    trashController: {fileID: 902466083}
+  - ipAddress: 192.168.1.18
     trashController: {fileID: 902466083}
 --- !u!1 &1578165390
 GameObject:
